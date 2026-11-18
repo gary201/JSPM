@@ -1,0 +1,731 @@
+/* =====================================================================
+   JSPM — full d'estils de la web
+   ===================================================================== */
+
+/* Tipografies allotjades a la mateixa web (sense dependre de Google Fonts) — Barlow, llicència SIL OFL */
+@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/barlow-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/barlow-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/barlow-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/barlow-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/barlow-condensed-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/barlow-condensed-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:800;font-display:swap;src:url(../fonts/barlow-condensed-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Barlow Condensed';font-style:italic;font-weight:800;font-display:swap;src:url(../fonts/barlow-condensed-latin-800-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Fonts de reserva amb mètriques ajustades a Barlow: mentre es carrega la font web el text ocupa el mateix espai (sense salts, CLS) */
+@font-face{font-family:'Barlow Fallback';font-weight:300 500;src:local('Arial'),local('ArialMT'),local('Helvetica'),local('Liberation Sans'),local('Roboto');size-adjust:93.4%;ascent-override:107.1%;descent-override:21.4%;line-gap-override:0%}
+@font-face{font-family:'Barlow Fallback';font-weight:600 900;src:local('Arial Bold'),local('Arial-BoldMT'),local('Helvetica Bold'),local('Liberation Sans Bold'),local('Roboto Bold');size-adjust:90.5%;ascent-override:110.6%;descent-override:22.1%;line-gap-override:0%}
+@font-face{font-family:'Barlow Condensed Fallback';font-weight:500 900;src:local('Arial Bold'),local('Arial-BoldMT'),local('Helvetica Bold'),local('Liberation Sans Bold'),local('Roboto Bold');size-adjust:70%;ascent-override:143%;descent-override:28.6%;line-gap-override:0%}
+:root{
+  /* Joventut Sant Pere Màrtir — colors de l'escut: blau i blanc a ratlles, tinta negra */
+  --blau:#17428a;
+  --blau-fosc:#0c2554;
+  --tinta:#121a2e;
+  --paper:#f3f5fa;
+  --blanc:#ffffff;
+  --linia:#d8deea;
+  --suau:#5a6580;
+  --clar:#a9c7ff; /* accent clar sobre fons blau (abans groc) */
+  --focus:#2f7df6;
+  --guany:#1d8a4e;
+  --empat:#7d879c;
+  --perd:#c4372f;
+  --display:"Barlow Condensed","Barlow Condensed Fallback","Arial Narrow",sans-serif;
+  --body:"Barlow","Barlow Fallback",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --radi:10px;
+  --ample:1180px;
+  /* Layout: capçalera fixa amb franja de ratlles; seccions a amplada controlada; targetes de partits en files */
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--tinta);font-family:var(--body);font-size:17px;line-height:1.55}
+img{max-width:100%;display:block}
+a{color:var(--blau)}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.05;margin:0;text-wrap:balance;letter-spacing:.01em}
+h1{font-size:clamp(44px,7vw,84px);font-weight:800;text-transform:uppercase}
+h2{font-size:clamp(30px,4vw,44px);font-weight:800;text-transform:uppercase}
+h3{font-size:24px;font-weight:700}
+p{margin:0}
+.wrap{max-width:var(--ample);margin:0 auto;padding:0 20px}
+.num{font-variant-numeric:tabular-nums}
+
+/* Franja de ratlles (de l'escut) */
+.ratlles{height:8px;background:repeating-linear-gradient(90deg,var(--blau) 0 18px,var(--blanc) 18px 36px)}
+
+/* Capçalera */
+header.cap{position:sticky;top:0;z-index:50;background:var(--blau-fosc);color:var(--blanc);box-shadow:0 2px 14px rgba(8,20,48,.25)}
+.cap-in{display:flex;align-items:center;gap:18px;min-height:72px}
+.marca{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none;min-width:0}
+.marca span{min-width:0}
+@media (max-width:520px){.cap .marca b{font-size:18px;white-space:normal}.cap .marca small{display:none}.cap .marca img{width:40px;height:40px}}
+.marca img{width:46px;height:46px}
+.marca b{display:block;white-space:nowrap;font-family:var(--display);font-size:22px;font-weight:800;text-transform:uppercase;line-height:1}
+.marca small{display:block;font-size:13px;opacity:.75;letter-spacing:.04em}
+nav.menu{margin-left:auto;display:flex;align-items:center;gap:2px}
+nav.menu a{white-space:nowrap;color:#dfe7f7;text-decoration:none;font-family:var(--display);font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:.02em;padding:10px 8px;border-radius:6px}
+header.cap .wrap{max-width:1560px}
+nav.menu a:hover{color:var(--blanc);background:rgba(255,255,255,.08)}
+nav.menu a[aria-current="page"]{color:var(--blanc);box-shadow:inset 0 -3px 0 var(--blanc);border-radius:0}
+nav.menu a.botiga{margin-left:8px;background:var(--blanc);color:var(--blau);border-radius:6px}
+nav.menu a.botiga:hover{background:#e3ebf9;color:var(--blau)}
+nav.menu a.botiga[aria-current="page"]{border-radius:6px;box-shadow:inset 0 0 0 2px var(--blau)}
+.obre-menu{display:none;margin-left:auto;background:none;border:1px solid rgba(255,255,255,.35);color:var(--blanc);border-radius:8px;padding:8px 12px;font:600 15px var(--body);cursor:pointer}
+@media (max-width:1439px){
+  .obre-menu{display:block}
+  nav.menu{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:var(--blau-fosc);padding:8px 20px 18px;gap:0;border-top:1px solid rgba(255,255,255,.12)}
+  nav.menu.obert{display:flex}
+  nav.menu a{padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.08)}
+  nav.menu a[aria-current="page"]{box-shadow:inset 4px 0 0 var(--clar);padding-left:12px}
+  nav.menu a.botiga{margin:12px 0 0;text-align:center}
+}
+/* Menú plegat quan no hi cap (p. ex. textos més llargs en castellà) */
+header.cap.compacte .obre-menu{display:block}
+header.cap.compacte nav.menu{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:var(--blau-fosc);padding:8px 20px 18px;gap:0;border-top:1px solid rgba(255,255,255,.12)}
+header.cap.compacte nav.menu.obert{display:flex}
+header.cap.compacte nav.menu a{padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.08)}
+header.cap.compacte nav.menu a[aria-current="page"]{box-shadow:inset 4px 0 0 var(--clar);padding-left:12px}
+header.cap.compacte nav.menu a.botiga{margin:12px 0 0;text-align:center}
+
+/* Barra superior: idiomes */
+.barra-sup{background:#081a3d;color:#c3cfe8;font-size:13px}
+.barra-sup .wrap{max-width:1560px}
+.barra-in{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:38px}
+.barra-lema{letter-spacing:.05em}
+.idiomes{display:flex;gap:6px;margin-left:auto}
+.idiomes button{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid rgba(255,255,255,.16);color:#dfe7f7;border-radius:7px;padding:4px 8px 4px 5px;cursor:pointer;font:700 12px/1 var(--body);letter-spacing:.06em}
+.idiomes button:hover{border-color:rgba(255,255,255,.5);color:#fff}
+.idiomes button[aria-pressed="true"]{background:rgba(255,255,255,.12);border-color:var(--clar);color:#fff}
+.idiomes button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.idiomes svg{width:24px;height:16px;border-radius:3px;display:block;box-shadow:0 0 0 1px rgba(0,0,0,.3)}
+@media (max-width:560px){.barra-lema{display:none}}
+
+/* Vistes */
+.bloc{padding-top:56px;padding-bottom:56px}
+.bloc + .bloc{padding-top:0}
+.titol-bloc{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.titol-bloc p{color:var(--suau);max-width:60ch}
+.etiqueta{display:inline-block;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--blau)}
+.boto{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.04em;text-decoration:none;padding:12px 20px;border-radius:8px;border:2px solid transparent;cursor:pointer;background:var(--blau);color:var(--blanc)}
+.boto:hover{background:var(--blau-fosc)}
+.boto.clar{background:transparent;border-color:currentColor;color:var(--blau)}
+.boto.clar:hover{background:rgba(23,66,138,.07)}
+.enllac{font-weight:600;text-decoration:none;border-bottom:2px solid rgba(23,66,138,.25)}
+.enllac:hover{border-color:var(--blau)}
+
+/* Capçalera de pàgina interior */
+.cap-pag{background:var(--blau);color:var(--blanc);position:relative;overflow:hidden}
+.cap-pag.amb-foto{background:var(--blau)}
+.cap-foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.cap-pag.amb-foto::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,30,70,.95) 0%,rgba(16,48,106,.86) 45%,rgba(16,48,106,.42) 100%)}
+.cap-pag.amb-foto::after{display:none}
+.cap-pag.amb-foto .wrap{padding-top:64px;padding-bottom:60px}
+.cap-pag::after{content:"";position:absolute;inset:0 0 0 auto;width:42%;background:repeating-linear-gradient(90deg,rgba(255,255,255,.09) 0 26px,transparent 26px 52px);pointer-events:none}
+.cap-pag .wrap{padding-top:46px;padding-bottom:42px;position:relative;z-index:1}
+.cap-pag .etiqueta{color:var(--clar)}
+.cap-pag p{max-width:62ch;margin-top:10px;color:#dbe4f6;font-size:18px}
+
+/* Portada */
+.kicker{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--blau);margin:0}
+.kicker::before{content:"";flex:none;width:16px;height:16px;border-radius:3px;background:repeating-linear-gradient(90deg,currentColor 0 3px,transparent 3px 6px);box-shadow:inset 0 0 0 1.5px currentColor}
+/* Portada: fotos que van canviant, escut al centre i "Som ..." en una banda blanca */
+.hero{position:relative;overflow:hidden;isolation:isolate;color:var(--blanc);background:var(--blau-fosc);min-height:clamp(560px,calc(100vh - 118px),860px);display:grid;place-items:center;text-align:center}
+.hero-fotos{position:absolute;inset:0;z-index:-2}
+.hero-foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos,center 35%);opacity:0;transition:opacity 1.4s ease;transform:scale(1.02)}
+.hero-foto.actiu{opacity:1;animation:hero-deriva 9s ease-out forwards}
+@keyframes hero-deriva{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.12) translate3d(-1.2%,-1%,0)}}
+.hero-ombra{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 48%,rgba(12,37,84,.34) 0%,rgba(12,37,84,.68) 100%),linear-gradient(0deg,rgba(7,20,48,.85) 0%,rgba(7,20,48,0) 38%)}
+.hero-in{display:flex;flex-direction:column;align-items:center;padding:56px 20px 120px;width:100%}
+.hero-escut{width:88px;height:88px;object-fit:contain;filter:drop-shadow(0 8px 22px rgba(0,0,0,.4))}
+.hero-nom{margin:16px 0 0;font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.3em;text-indent:.3em;text-transform:uppercase;color:#d9e3f6}
+.hero-titol{margin:20px 0 0;display:flex;flex-direction:column;align-items:center;gap:.08em;font-family:var(--display);font-style:italic;font-weight:800;text-transform:uppercase;line-height:.88;font-size:clamp(64px,9vw,132px);letter-spacing:0}
+.hero-som{display:block;font-size:.46em;letter-spacing:.2em;text-indent:.2em;color:var(--blanc)}
+@supports (-webkit-text-stroke:1px){.hero-som{color:transparent;-webkit-text-stroke:2px var(--blanc)}}
+.hero-banda{display:inline-block;overflow:hidden;white-space:nowrap;background:var(--blanc);color:var(--blau);padding:.1em .34em .04em;transform:skewX(-9deg);box-shadow:0 22px 60px rgba(0,0,0,.32),inset 0 -.09em 0 var(--blau);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.hero-paraula{display:inline-block;transform:skewX(9deg);transition:transform .3s ease}
+.hero-paraula.surt{transform:skewX(9deg) translateY(-115%)}
+.hero-paraula.entra{transform:skewX(9deg) translateY(115%);transition:none}
+.hero-lead{margin:28px 0 0;max-width:46ch;text-wrap:balance;font-size:clamp(17px,1.5vw,20px);font-weight:500;line-height:1.45;color:#e3eaf8;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.hero-franja{position:absolute;left:0;right:0;bottom:0;height:10px;background:repeating-linear-gradient(90deg,var(--blanc) 0 18px,var(--blau) 18px 36px);z-index:2}
+.hero-control{position:absolute;z-index:3;right:clamp(16px,4vw,56px);bottom:30px;display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.08em;color:#e3eaf8}
+.hero-control button{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(7,20,48,.25);color:var(--blanc);cursor:pointer;padding:0;transition:background .2s,border-color .2s}
+.hero-control button:hover{background:var(--blanc);color:var(--blau);border-color:var(--blanc)}
+.hero-control svg{width:14px;height:14px}
+.hero-barra{position:relative;width:90px;height:2px;background:rgba(255,255,255,.3);overflow:hidden}
+.hero-barra i{position:absolute;inset:0;background:var(--blanc);transform-origin:left;transform:scaleX(0)}
+.hero-barra i.corre{animation:hero-progres 6s linear forwards}
+@keyframes hero-progres{to{transform:scaleX(1)}}
+.hero-baixa{position:absolute;z-index:3;left:50%;bottom:28px;transform:translateX(-50%);width:40px;height:40px;display:grid;place-items:center;border:0;background:none;color:var(--blanc);cursor:pointer;opacity:.85;animation:hero-bot 2.4s ease-in-out infinite}
+.hero-baixa svg{width:26px;height:26px}
+@keyframes hero-bot{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
+@media (max-width:700px){.hero-in{padding:44px 16px 118px}.hero-escut{width:72px;height:72px}.hero-nom{font-size:13px;letter-spacing:.22em;text-indent:.22em}.hero-titol{font-size:clamp(46px,13.2vw,70px)}.hero-som{-webkit-text-stroke-width:1.5px}.hero-control{right:50%;transform:translateX(50%);bottom:26px}.hero-baixa{display:none}}
+/* Revelació en fer scroll */
+.revela{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.revela.vist{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.revela{opacity:1;transform:none}}
+
+.act-foto{margin:-24px -24px 6px;aspect-ratio:16/10;position:relative;overflow:hidden;background:repeating-linear-gradient(90deg,var(--blau) 0 22px,#2152a3 22px 44px);display:grid;place-items:center;border-radius:13px 13px 0 0}
+.act-foto span{font-family:var(--display);font-weight:800;font-size:40px;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.act-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.olot2026{margin-top:22px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;background:var(--blanc);border:1px solid var(--linia);border-radius:14px;padding:16px 22px}
+.olot2026-logo{position:relative;width:200px;height:90px;display:grid;place-items:center;background:var(--paper);border-radius:10px}
+.olot2026-logo span{font-family:var(--display);font-weight:800;font-size:26px;color:var(--blau)}
+.olot2026-logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+
+.foto-lat{position:relative;overflow:hidden;border-radius:14px;background:repeating-linear-gradient(90deg,var(--blau) 0 22px,#2152a3 22px 44px);display:grid;place-items:center}
+.foto-lat span{font-family:var(--display);font-weight:800;font-size:44px;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.foto-lat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+button.enllac{background:none;border:0;border-bottom:2px solid rgba(23,66,138,.25);padding:0;font:inherit;font-weight:600;color:var(--blau);cursor:pointer}
+button.enllac:hover{border-color:var(--blau)}
+.caixa-foto{position:fixed;inset:0;z-index:100;background:rgba(8,14,30,.86);display:grid;place-items:center;padding:20px}
+.caixa-foto[hidden]{display:none}
+.caixa-in{max-width:min(1200px,100%);max-height:100%;display:flex;flex-direction:column;gap:10px}
+.caixa-cap{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#fff;font-family:var(--display);font-size:22px;text-transform:uppercase}
+.caixa-cap button{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:6px 12px;font:600 15px var(--body);cursor:pointer}
+.caixa-in img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;border-radius:10px;background:#000}
+
+.gal-grup{margin-bottom:40px}
+.gal-grup h2,.gal-grup h3{font-size:24px;text-transform:uppercase;margin-bottom:4px}
+.gal-grup p{color:var(--suau);margin-bottom:14px}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.gal-inici{grid-template-columns:repeat(3,1fr)}
+@media (max-width:700px){.gal-inici{grid-template-columns:repeat(2,1fr)}}
+.gal-item{position:relative;display:block;padding:0;border:0;border-radius:10px;overflow:hidden;aspect-ratio:16/9;background:var(--linia);cursor:zoom-in}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.gal-item:hover img{transform:scale(1.04)}
+
+.caixa-nav{display:flex;gap:8px}
+.caixa-nav button{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:6px 12px;font:600 15px var(--body);cursor:pointer}
+.caixa-nav button[hidden]{display:none}
+
+.president{background:var(--blau);color:var(--blanc);border-radius:10px;padding:12px 14px;margin-bottom:8px}
+.president span{display:block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--clar)}
+.president b{display:block;font-family:var(--display);font-size:24px;font-weight:800}
+.president small{color:#d6e0f4;font-size:14px}
+.llista-neta li span{text-align:right}
+
+/* Instagram */
+/* Instagram (estil notícies) */
+.noticies-cap{display:flex;align-items:flex-end;justify-content:space-between;gap:18px 24px;flex-wrap:wrap;margin-bottom:26px}
+.noticies-cap h2{margin:10px 0 0;font-size:clamp(34px,4.4vw,54px);line-height:1;text-transform:none;letter-spacing:-.01em}
+.hl{background:var(--blau);color:var(--blanc);padding:0 .14em;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.noticies-eines{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.enllac-fletxa{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--tinta);text-decoration:none}
+.enllac-fletxa svg{width:16px;height:16px;transition:transform .2s}
+.enllac-fletxa:hover svg{transform:rotate(45deg)}
+.graella-not{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.not{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:var(--tinta)}
+.not[hidden]{display:none}
+.not-img{position:relative;aspect-ratio:1/1;border-radius:18px;overflow:hidden;background:#0d1b46}
+.not-img .fons{position:absolute;inset:-10%;width:120%;height:120%;object-fit:cover;filter:blur(22px) brightness(.75);transform:scale(1.05)}
+.not-img .cartell{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:transform .45s ease}
+.not:hover .not-img .cartell{transform:scale(1.04)}
+.not-tipus{position:absolute;top:12px;right:12px;width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:rgba(0,0,0,.45);color:#fff}
+.not-tipus svg{width:17px;height:17px}
+.not-meta{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--suau)}
+.not-meta b{color:var(--blau);font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:12px}
+.not-meta .cor{display:inline-flex;align-items:center;gap:4px;margin-left:auto}
+.not-meta .cor svg{width:14px;height:14px;color:#d62976}
+.not-titol{font-size:19px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.not:hover .not-titol{color:var(--blau)}
+@media (max-width:900px){.graella-not{grid-template-columns:repeat(2,minmax(0,1fr))}.graella-not .not:nth-child(3){display:none}}
+@media (max-width:560px){.graella-not{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -20px;padding:0 20px 6px}.graella-not .not{flex:0 0 78%;scroll-snap-align:start}.graella-not .not:nth-child(3){display:flex}}
+/* Patrocinadors: cinta interactiva */
+.pat-banda{background:var(--blau-fosc);color:var(--blanc);padding:30px 0 34px;overflow:hidden}
+.pat-banda-cap{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
+.pat-banda .kicker{color:#dfe7f7}
+.enllac-clar{color:var(--blanc);font-weight:700;text-decoration:none;border-bottom:2px solid rgba(255,255,255,.3)}
+.enllac-clar:hover{border-color:var(--blanc)}
+.marquee{overflow:hidden;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.marquee.arrossega{cursor:grabbing}
+.marquee-pista{display:flex;width:max-content;will-change:transform}
+.marquee-set{display:flex;gap:14px;padding-right:14px}
+.marquee .pat{width:210px;min-height:118px;flex:none;background:var(--blanc);border-color:transparent}
+.marquee .pat,.marquee .pat img{-webkit-user-drag:none}
+.marquee .pat img{pointer-events:none}
+.marquee .pat:hover{transform:translateY(-3px)}
+.xifres{background:var(--blanc);border-bottom:1px solid var(--linia)}
+.xifres .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.xifra{padding:22px 18px;border-left:1px solid var(--linia)}
+.xifra:first-child{border-left:0}
+.xifra b{display:block;font-family:var(--display);font-size:42px;font-weight:800;color:var(--blau);line-height:1}
+.xifra span{color:var(--suau);font-size:15px}
+@media (max-width:640px){.xifres .wrap{grid-template-columns:repeat(2,1fr)}.xifra:nth-child(3){border-left:0}.xifra{border-top:1px solid var(--linia)}.xifra:nth-child(-n+2){border-top:0}}
+
+/* Partits: llistes */
+.dia{margin-bottom:22px}
+.dia h3{font-size:20px;text-transform:uppercase;letter-spacing:.04em;color:var(--blau);padding-bottom:8px;border-bottom:2px solid var(--blau);margin-bottom:6px}
+
+.rival{display:flex;align-items:center;gap:10px;min-width:0}
+.rival .nom{min-width:0}
+.rival .nom small{display:block;color:var(--suau);font-size:14px}
+.esc{width:34px;height:34px;flex-shrink:0;border-radius:50%;background:var(--paper);display:grid;place-items:center;overflow:hidden;border:1px solid var(--linia)}
+.esc img{width:100%;height:100%;object-fit:contain;background:var(--blanc)}
+.esc i{font-style:normal;font-family:var(--display);font-weight:800;font-size:13px;color:var(--suau)}
+.lloc{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:4px 9px;border-radius:999px;white-space:nowrap}
+.lloc.casa{background:var(--blau);color:var(--blanc)}
+.lloc.fora{background:transparent;color:var(--blau);box-shadow:inset 0 0 0 1.5px var(--blau)}
+
+.buit{background:var(--blanc);border:1px dashed var(--linia);border-radius:var(--radi);padding:22px;color:var(--suau)}
+.font-dades{margin-top:14px;font-size:14px;color:var(--suau)}
+
+.chip{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 6px;border-radius:6px;font-family:var(--display);font-weight:800;font-size:16px;color:var(--blanc);background:var(--empat)}
+.chip.V{background:var(--guany)}.chip.D{background:var(--perd)}
+
+/* Pàgina partits: selector d'equips */
+.selector{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}
+.selector a{text-decoration:none;font-weight:600;font-size:15px;padding:8px 14px;border-radius:999px;background:var(--blanc);border:1px solid var(--linia);color:var(--tinta)}
+.selector a:hover{border-color:var(--blau)}
+.selector a[aria-current="true"]{background:var(--blau);border-color:var(--blau);color:var(--blanc)}
+.fitxa{display:grid;grid-template-columns:1fr;gap:18px 30px;align-items:center;background:var(--blanc);border:1px solid var(--linia);border-radius:16px;padding:22px 24px;margin-bottom:22px;overflow:hidden}
+.fitxa.amb-foto{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);padding:0}
+.fitxa.amb-foto .fitxa-text{padding:26px 0 26px 30px}
+.fitxa h2{font-size:clamp(30px,4vw,46px)}
+.fitxa .comp{color:var(--suau);margin-top:6px}
+.fitxa-foto{position:relative;display:grid;place-items:center;aspect-ratio:3/2;background:repeating-linear-gradient(90deg,var(--blau) 0 22px,#2152a3 22px 44px)}
+.fitxa-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.fitxa-foto .sigla{font-family:var(--display);font-weight:800;font-size:54px;color:var(--blanc);text-transform:uppercase}
+.fitxa-foto .lupa{position:absolute;right:14px;bottom:14px;width:42px;height:42px;border-radius:50%;background:rgba(12,37,84,.78);color:#fff;display:grid;place-items:center}
+.fitxa-foto .lupa svg{width:20px;height:20px}
+.fitxa-foto:hover img{transform:scale(1.03)}
+@media (max-width:760px){.fitxa.amb-foto{grid-template-columns:1fr}.fitxa.amb-foto .fitxa-text{padding:20px 22px 4px}}
+
+/* Equips */
+.grup-equips{margin-bottom:38px}
+.grup-equips h2{font-size:22px;text-transform:uppercase;color:var(--blau);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.grup-equips h2::after{content:"";flex:1;height:2px;background:var(--linia)}
+.graella-eq{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.eq{background:var(--blanc);border:1px solid var(--linia);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.eq .foto{aspect-ratio:3/2;background:repeating-linear-gradient(90deg,var(--blau) 0 22px,#2152a3 22px 44px);position:relative;display:grid;place-items:center}
+.eq .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+button.foto{border:0;padding:0;margin:0;width:100%;font:inherit;color:inherit;cursor:zoom-in;overflow:hidden}
+button.foto:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
+.eq .foto .lupa{position:absolute;right:12px;bottom:12px;width:40px;height:40px;border-radius:50%;background:rgba(12,37,84,.78);color:#fff;display:grid;place-items:center;opacity:0;transform:scale(.85);transition:opacity .2s,transform .2s}
+.eq .foto .lupa svg{width:20px;height:20px}
+.eq .foto:hover img{transform:scale(1.04)}
+.eq .foto:hover .lupa,.eq .foto:focus-visible .lupa{opacity:1;transform:none}
+@media (hover:none){.eq .foto .lupa{opacity:1;transform:none;width:34px;height:34px}}
+.eq .foto .sigla{font-family:var(--display);font-weight:800;font-size:54px;color:var(--blanc);text-transform:uppercase;letter-spacing:.02em;text-shadow:0 3px 14px rgba(0,0,0,.25)}
+.eq .cos{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.eq .cos h3,.eq .cos h4{font-size:24px;font-weight:800;text-transform:uppercase}
+.eq .cos .c{color:var(--suau);font-size:15px}
+.eq .cos .seg{font-size:15px;margin-top:4px}
+.eq .cos .seg b{font-weight:700}
+.eq .accions{display:flex;gap:14px;flex-wrap:wrap;margin-top:auto;padding-top:12px;font-size:15px}
+
+/* Text llarg */
+.text{max-width:68ch}
+.text p{margin-bottom:16px}
+.text h2.sub,.text h3{margin:30px 0 10px;font-size:26px;text-transform:uppercase}
+.linia-temps{list-style:none;margin:0;padding:0;display:grid;gap:0;border-left:3px solid var(--blau);margin-left:8px}
+.linia-temps li{position:relative;padding:0 0 22px 26px}
+.linia-temps li::before{content:"";position:absolute;left:-9px;top:6px;width:15px;height:15px;border-radius:50%;background:var(--blanc);border:3px solid var(--blau)}
+.linia-temps b{display:block;font-family:var(--display);font-size:26px;font-weight:800;color:var(--blau);line-height:1}
+.dos-panells{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start}
+@media (max-width:900px){.dos-panells{grid-template-columns:1fr}}
+.targeta{background:var(--blanc);border:1px solid var(--linia);border-radius:14px;padding:22px 24px}
+.targeta h2,.targeta h3{font-size:22px;text-transform:uppercase;margin-bottom:12px}
+.llista-neta{list-style:none;margin:0;padding:0}
+.llista-neta li{padding:10px 0;border-top:1px solid var(--linia);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.llista-neta li:first-child{border-top:0}
+.llista-neta li span{color:var(--suau)}
+.valors{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:8px 0 10px}
+.valor{background:var(--blanc);border:1px solid var(--linia);border-top:4px solid var(--blau);border-radius:10px;padding:14px 16px}
+.valor b{font-family:var(--display);font-size:22px;text-transform:uppercase}
+.valor p{font-size:15px;color:var(--suau);margin-top:4px}
+
+/* Activitats */
+.activitats{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.act{background:var(--blanc);border:1px solid var(--linia);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.act .etiqueta{font-size:13px}
+.act h3{font-size:28px;text-transform:uppercase}
+.act p{color:var(--suau)}
+.act .accions{margin-top:auto;padding-top:8px}
+.act.destacada{background:var(--blau);color:var(--blanc);border-color:var(--blau)}
+.act.destacada p{color:#d6e0f4}.act.destacada .etiqueta{color:var(--clar)}
+.act.destacada .enllac{color:var(--blanc);border-color:rgba(255,255,255,.4)}
+
+/* Patrocinadors */
+.graella-pat{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.pat{background:var(--blanc);border:1px solid var(--linia);border-radius:12px;min-height:110px;display:grid;place-items:center;padding:16px;text-decoration:none;color:var(--tinta);text-align:center;position:relative}
+.pat:hover{border-color:var(--blau)}
+.pat img{max-height:70px;width:auto;object-fit:contain}
+.pat-tipus{position:absolute;right:8px;bottom:6px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--suau);opacity:0;transition:opacity .2s}
+.pat:hover .pat-tipus,.pat:focus-visible .pat-tipus{opacity:1}
+@media (hover:none){.pat-tipus{opacity:1}}
+.pat .np{font-family:var(--display);font-weight:700;font-size:20px;text-transform:uppercase;line-height:1.1}
+.pat .np small{display:block;font-family:var(--body);text-transform:none;font-weight:500;font-size:13px;color:var(--suau);margin-top:4px}
+.crida{margin-top:28px;background:var(--blau-fosc);color:var(--blanc);border-radius:14px;padding:26px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.crida h2,.crida h3{font-size:28px;text-transform:uppercase}
+.crida p{color:#d6e0f4;margin-top:6px}
+.crida .boto{background:var(--blanc);color:var(--blau)}
+.crida .boto:hover{background:#e6edf9}
+
+/* Botiga */
+.eina-botiga{display:flex;justify-content:space-between;align-items:flex-start;gap:12px 24px;flex-wrap:wrap;margin-bottom:6px}
+.eina-botiga .selector{margin-bottom:16px}
+.selector button{font:600 15px var(--body);padding:8px 14px;border-radius:999px;background:var(--blanc);border:1px solid var(--linia);color:var(--tinta);cursor:pointer}
+.selector button:hover{border-color:var(--blau)}
+.selector button[aria-pressed="true"]{background:var(--blau);border-color:var(--blau);color:var(--blanc)}
+.recompte{color:var(--suau);font-size:15px;padding-top:8px}
+.graella-prod{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.prod{background:var(--blanc);border:1px solid var(--linia);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.prod .imatge{aspect-ratio:1/1;background:linear-gradient(180deg,#eef2f9,#e2e8f4);position:relative;display:grid;place-items:center}
+.prod .imatge svg{width:46%;height:auto;color:var(--blau);opacity:.85}
+.prod .imatge img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:var(--blanc);padding:10px}
+
+.prod .cos{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.prod .cat{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blau)}
+.prod h3{font-size:22px;font-weight:700;line-height:1.1}
+
+.prod .peu-p{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 12px;margin-top:auto;padding-top:14px}
+.prod .preu{white-space:nowrap;font-family:var(--display);font-size:27px;font-weight:800;color:var(--tinta);line-height:1}
+.prod .boto{font-size:16px;padding:10px 14px;white-space:nowrap}
+
+/* Contacte */
+.contacte{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.contacte .targeta p{margin-bottom:6px}
+.tel{font-family:var(--display);font-size:24px;font-weight:700;color:var(--tinta);text-decoration:none}
+.xarxes{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.xarxes a{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid var(--linia);text-decoration:none;font-weight:600;color:var(--tinta);background:var(--blanc)}
+.xarxes a:hover{border-color:var(--blau)}
+.xarxes svg{width:18px;height:18px}
+
+/* Peu */
+footer.peu{background:var(--tinta);color:#c5cde0;margin-top:40px}
+.peu-in{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px;padding:44px 20px 30px}
+.peu h2,.peu h4{font-family:var(--display);font-size:18px;text-transform:uppercase;letter-spacing:.06em;color:var(--blanc);margin-bottom:10px}
+.peu a{color:#c5cde0;text-decoration:none}
+.peu a:hover{color:var(--blanc);text-decoration:underline}
+.peu ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:15px}
+.peu .marca img{width:54px;height:54px}
+.peu .marca b{white-space:normal}
+.peu p{font-size:15px;margin-top:12px}
+.peu-baix{border-top:1px solid rgba(255,255,255,.1);padding:16px 20px;font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;max-width:var(--ample);margin:0 auto}
+@media (max-width:860px){.peu-in{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.peu-in{grid-template-columns:1fr}}
+
+/* =====================================================================
+   MILLORES 2026 — components nous
+   ===================================================================== */
+.vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.salta{position:absolute;left:12px;top:-60px;z-index:200;background:var(--blanc);color:var(--blau);font-weight:700;padding:10px 16px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.25);text-decoration:none;transition:top .15s}
+.salta:focus{top:12px}
+.boto{min-height:44px;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.boto:active{transform:translateY(1px)}
+.boto.petit{font-size:15px;padding:8px 14px;min-height:40px}
+.boto svg{width:18px;height:18px;flex:none}
+.boto-hero{margin-top:28px;background:var(--blanc);color:var(--blau);font-size:clamp(18px,1.6vw,21px);padding:14px 26px;border-radius:999px;box-shadow:0 14px 40px rgba(0,0,0,.28)}
+.boto-hero:hover{background:#e3ebf9;color:var(--blau)}
+.enllac{display:inline-block;padding:6px 0}
+.selector a,.selector button{min-height:40px;display:inline-flex;align-items:center}
+
+/* Partits: eines (pestanyes, categories, equip) */
+.eines-partits{display:grid;gap:16px;margin-bottom:22px}
+.pestanyes{display:inline-flex;gap:4px;padding:4px;background:var(--blanc);border:1px solid var(--linia);border-radius:999px;justify-self:start}
+.pestanyes button{border:0;background:none;font:700 17px var(--display);letter-spacing:.05em;text-transform:uppercase;color:var(--suau);padding:10px 20px;border-radius:999px;cursor:pointer;min-height:44px}
+.pestanyes button[aria-pressed="true"]{background:var(--blau);color:var(--blanc)}
+.pestanyes button:hover:not([aria-pressed="true"]){color:var(--blau)}
+.filtres-pt{display:flex;gap:12px 18px;align-items:center;flex-wrap:wrap}
+.filtres-pt .selector{margin:0}
+.tria-eq{display:inline-flex;align-items:center;gap:10px;font-weight:600}
+.tria-eq span{font-size:14px;color:var(--suau);text-transform:uppercase;letter-spacing:.08em}
+select,input[type=text],input[type=email],input[type=tel],input[type=date],textarea{font:500 16px var(--body);color:var(--tinta);background:var(--blanc);border:1.5px solid #b9c3d6;border-radius:10px;padding:10px 12px;min-height:44px;width:100%}
+.tria-eq select{width:auto;min-width:210px}
+select:hover,input:hover,textarea:hover{border-color:var(--blau)}
+.recompte{color:var(--suau);font-size:15px;margin:0 0 6px}
+.mes-pt{text-align:center;margin:22px 0 0}
+
+/* Targeta de partit */
+.graella-pt{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
+.pt{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(0,1.5fr) auto auto;gap:14px;align-items:center;background:var(--blanc);border:1px solid var(--linia);border-left:5px solid var(--blau);border-radius:var(--radi);padding:12px 14px;margin-top:8px}
+.pt.jugat{border-left-color:var(--empat);background:#fbfcfe}
+.pt.jugat.V{border-left-color:var(--guany)}.pt.jugat.D{border-left-color:var(--perd)}
+.pt-hora{font-family:var(--display);font-weight:800;font-size:26px;color:var(--blau);line-height:1}
+.pt-marc{display:flex;align-items:baseline;gap:4px;font-family:var(--display);font-weight:800;font-size:26px;line-height:1;color:var(--tinta)}
+.pt-marc i{font-style:normal;color:var(--suau)}
+.pt-eq{font-weight:700;min-width:0}
+.pt-eq a{text-decoration:none;color:var(--tinta)}
+.pt-eq a:hover{color:var(--blau);text-decoration:underline}
+.pt-eq small{display:block;font-weight:500;color:var(--suau);font-size:14px}
+.pt-rival{min-width:0}
+.pt-rival .nom b{font-weight:700}
+.pt-estat{display:flex;justify-content:flex-end}
+.accions-pt{display:flex;gap:6px;justify-content:flex-end}
+.acc{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;height:44px;padding:0 10px;border-radius:10px;border:1px solid var(--linia);background:var(--blanc);color:var(--blau);font:600 14px var(--body);text-decoration:none;cursor:pointer;transition:background .2s,border-color .2s}
+.acc:hover{background:#eef3fb;border-color:var(--blau)}
+.acc svg{width:20px;height:20px;flex:none}
+.acc.wa{color:#128c4b}
+.acc span:not(.acc-txt){position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.acc-txt{font-weight:700}
+.pt.compacte{grid-template-columns:62px minmax(0,1fr) auto;grid-template-areas:"h e x" "h r r" "a a a";row-gap:8px}
+.pt.compacte .pt-hora,.pt.compacte .pt-marc{grid-area:h;align-self:start;font-size:24px}
+.pt.compacte .pt-eq{grid-area:e}.pt.compacte .pt-rival{grid-area:r}.pt.compacte .pt-estat{grid-area:x}
+.pt.compacte .accions-pt{grid-area:a;justify-content:flex-start;border-top:1px solid var(--linia);padding-top:8px}
+.dia h3{margin-top:6px}
+@media (max-width:980px){
+  .pt{grid-template-columns:62px minmax(0,1fr) auto;grid-template-areas:"h e x" "h r r" "a a a";row-gap:8px}
+  .pt .pt-hora,.pt .pt-marc{grid-area:h;align-self:start}
+  .pt .pt-eq{grid-area:e}.pt .pt-rival{grid-area:r}.pt .pt-estat{grid-area:x}
+  .pt .accions-pt{grid-area:a;justify-content:flex-start;border-top:1px solid var(--linia);padding-top:8px}
+  .pt:not(:has(.pt-eq)){grid-template-areas:"h r x" "a a a"}
+}
+@media (max-width:560px){.graella-pt{grid-template-columns:1fr}.pestanyes{justify-self:stretch}.pestanyes button{flex:1;padding:10px 12px}.tria-eq{width:100%}.tria-eq select{flex:1;min-width:0}}
+/* Targetes de partits jugats: tota la targeta obre la fitxa */
+.pt[data-fitxa]{cursor:pointer;transition:border-color .2s,box-shadow .2s}
+.pt[data-fitxa]:hover{box-shadow:0 4px 16px rgba(12,37,84,.10);border-top-color:#b9c6de;border-right-color:#b9c6de;border-bottom-color:#b9c6de}
+.acc.acc-fitxa{background:var(--blau);border-color:var(--blau);color:var(--blanc)}
+.acc.acc-fitxa:hover{background:var(--blau-fosc);border-color:var(--blau-fosc)}
+
+/* Fitxa del partit (partit/#equip/jornada) */
+.dp-marcador{background:var(--blanc);border:1px solid var(--linia);border-radius:16px;padding:24px 20px 18px;margin-bottom:22px;box-shadow:0 2px 10px rgba(12,37,84,.05)}
+.dp-equips{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:12px}
+.dp-eq{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;min-width:0;font-weight:700;line-height:1.25;overflow-wrap:anywhere}
+.dp-eq img{width:64px;height:64px;object-fit:contain}
+.dp-eq .esc{width:64px;height:64px;display:grid;place-items:center}
+.dp-eq .esc img{width:64px;height:64px}
+.dp-eq .esc i{font-style:normal;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:#e8edf6;color:var(--blau);font-family:var(--display);font-weight:800;font-size:22px}
+.dp-eq.nos b{color:var(--blau)}
+.dp-eq small{color:var(--suau);font-weight:500;font-size:14px}
+.dp-res{font-family:var(--display);font-weight:800;font-size:clamp(46px,10vw,76px);line-height:1;color:var(--tinta);display:flex;gap:10px;align-items:center}
+.dp-res i{font-style:normal;color:var(--suau)}
+.dp-info{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 20px;color:var(--suau);font-size:15px;border-top:1px solid var(--linia);margin-top:18px;padding-top:14px;text-align:center}
+.dp-info .chip{vertical-align:middle}
+.dp-graella{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px;align-items:start;margin-bottom:18px}
+.dp-col{display:grid;gap:18px}
+.dp-caixa{background:var(--blanc);border:1px solid var(--linia);border-radius:14px;padding:18px 20px}
+.dp-caixa h2{font-size:26px;margin:0 0 10px}
+.dp-caixa h3{font-size:18px;margin:16px 0 4px;color:var(--suau);text-transform:uppercase;letter-spacing:.06em}
+.dp-caixa .petit{margin:8px 0 0}
+.dp-llista{list-style:none;margin:0;padding:0}
+.dp-llista li{display:grid;grid-template-columns:44px 24px minmax(0,1fr) auto;align-items:center;gap:8px;padding:9px 0;border-top:1px solid var(--linia)}
+.dp-llista li:first-child{border-top:0}
+.dp-min{font-family:var(--display);font-weight:800;font-size:20px;color:var(--blau)}
+.dp-txt{min-width:0;overflow-wrap:anywhere}
+.dp-nom{font-weight:700}
+.dp-dorsal{font-weight:600}
+.dp-gols li.nos .ico-ev{color:var(--guany)}
+.dp-gols li.contra{color:var(--suau)}
+.dp-gols li.contra .dp-min,.dp-gols li.contra .ico-ev{color:var(--perd)}
+.dp-marc{font-family:var(--display);font-weight:700;font-size:18px;color:var(--suau)}
+.ico-ev{width:20px;height:20px;display:inline-block;vertical-align:middle;flex:none}
+.ico-ev.entra{color:var(--guany)}.ico-ev.surt{color:var(--perd)}
+.dp-evs .ico-ev.pp{color:var(--perd)}
+.dp-alin-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:0 36px}
+.targ{display:inline-block;width:13px;height:18px;border-radius:2px;background:#f5c518;box-shadow:inset 0 0 0 1px rgba(0,0,0,.18);vertical-align:middle}
+.targ.r{background:var(--perd)}
+.targ.yy{background:linear-gradient(135deg,#f5c518 0 50%,var(--perd) 50% 100%)}
+.dp-canvi{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.dp-canvi + .dp-canvi{margin-top:4px}
+.dp-alin .dp-llista li{grid-template-columns:34px minmax(0,1fr) auto}
+.dorsal{display:inline-grid;place-items:center;min-width:32px;height:32px;padding:0 4px;border-radius:8px;background:var(--blau);color:var(--blanc);font-family:var(--display);font-weight:800;font-size:17px}
+.capita{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#e8edf6;color:var(--blau);font-size:12px;font-weight:800;text-decoration:none;cursor:help;vertical-align:1px}
+.dp-evs{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.dp-evs .ev{display:inline-flex;align-items:center;gap:3px;color:var(--suau);font-size:14px}
+.dp-evs .ev small{font-weight:600}
+.dp-peu{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:22px 0 8px}
+.dp-peu .boto svg{width:18px;height:18px}
+@media (max-width:560px){
+  .dp-marcador{padding:18px 12px 14px}
+  .dp-eq img,.dp-eq .esc,.dp-eq .esc img{width:48px;height:48px}
+  .dp-eq .esc i{width:44px;height:44px;font-size:18px}
+  .dp-eq{font-size:15px}
+  .dp-caixa{padding:16px 14px}
+  .dp-llista li{grid-template-columns:40px 22px minmax(0,1fr) auto;gap:6px}
+}
+.fitxa .anys{color:var(--blau);font-weight:700;margin-top:6px}
+.fitxa-acc{margin-top:14px}
+
+/* Equips */
+.salts-eq{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}
+.salts-eq a{display:inline-flex;align-items:center;min-height:40px;padding:8px 16px;border-radius:999px;background:var(--blanc);border:1px solid var(--linia);text-decoration:none;font-weight:600;color:var(--tinta)}
+.salts-eq a:hover{border-color:var(--blau);color:var(--blau)}
+.grup-equips{scroll-margin-top:110px}
+.eq .cos .anys{color:var(--blau);font-weight:700}
+.crida-eq{margin-top:34px}
+
+/* Inscripcions */
+.insc-intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:34px;align-items:start}
+.insc-intro h2{font-size:clamp(30px,3.4vw,42px);margin:6px 0 8px}
+.insc-nota{color:var(--suau);margin-bottom:16px}
+.insc-costat{display:grid;gap:18px}
+.insc-costat .targeta p+p{margin-top:10px}
+.taula-cat{overflow-x:auto;background:var(--blanc);border:1px solid var(--linia);border-radius:14px}
+.taula-cat table{width:100%;border-collapse:collapse;font-size:16px}
+.taula-cat th,.taula-cat td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--linia)}
+.taula-cat thead th{font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;font-size:14px;color:var(--suau);background:#f7f9fd}
+.taula-cat tbody th{font-family:var(--display);font-size:20px;text-transform:uppercase;color:var(--blau)}
+.taula-cat tbody tr:last-child>*{border-bottom:0}
+.taula-cat tbody tr:hover{background:#f7f9fd}
+.passos{list-style:none;counter-reset:pas;margin:10px 0 0;padding:0;display:grid;gap:14px}
+.passos li{counter-increment:pas;display:grid;grid-template-columns:38px 1fr;column-gap:12px}
+.passos li::before{content:counter(pas);grid-row:span 2;width:38px;height:38px;border-radius:50%;background:var(--blau);color:var(--blanc);display:grid;place-items:center;font:800 20px var(--display)}
+.passos b{font-weight:700}
+.passos span{color:var(--suau)}
+.insc-tel{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline}
+.form-caixa{background:var(--blanc);border:1px solid var(--linia);border-radius:18px;padding:clamp(20px,4vw,40px);max-width:960px;margin:0 auto;box-shadow:0 18px 50px rgba(12,37,84,.06)}
+.form-cap h2{font-size:clamp(28px,3.2vw,40px);margin:6px 0 6px}
+.form-cap p{color:var(--suau)}
+#form-inscripcio fieldset{border:0;padding:0;margin:26px 0 0}
+#form-inscripcio legend{font-family:var(--display);font-weight:800;font-size:22px;text-transform:uppercase;color:var(--blau);margin-bottom:12px;padding:0}
+.camps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px}
+.camp{display:flex;flex-direction:column;gap:6px}
+.camp.ample{grid-column:1/-1}
+.camp label{font-weight:600}
+.camp .ajuda{color:var(--suau);font-size:14px}
+.camp .error{color:var(--perd);font-weight:600;font-size:14px}
+[aria-invalid="true"]{border-color:var(--perd)!important;background:#fff8f7}
+.consent{flex-direction:row;align-items:flex-start;gap:12px;margin-top:22px;flex-wrap:wrap}
+.consent input{width:24px;height:24px;margin:2px 0 0;flex:none;accent-color:var(--blau)}
+.consent label{flex:1;font-weight:500;min-width:220px}
+.consent .error{flex-basis:100%}
+.trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-peu{display:flex;align-items:center;gap:14px 20px;flex-wrap:wrap;margin-top:24px}
+.form-avis{color:var(--suau);font-size:14px;flex:1;min-width:240px}
+.form-errors{background:#fff5f4;border:1px solid #f0c4bf;border-left:5px solid var(--perd);border-radius:10px;padding:14px 18px;margin-top:20px}
+.form-errors ul{margin:6px 0 0;padding-left:20px}
+.form-errors a{color:var(--perd);font-weight:600}
+.form-resultat{margin-top:26px;padding:22px;border-radius:14px;background:#f2f6fd;border:1px solid #cfdcf2}
+.form-resultat h3{font-size:26px;text-transform:uppercase;color:var(--blau)}
+.form-resultat p{margin-top:8px}
+.res-accions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.form-resultat textarea{font:14px/1.5 ui-monospace,Consolas,monospace;background:var(--blanc)}
+.petit{font-size:14px;color:var(--suau)}
+@media (max-width:900px){.insc-intro{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:620px){.camps{grid-template-columns:1fr}.taula-cat th,.taula-cat td{padding:11px 12px}.taula-cat tbody th{font-size:18px}}
+
+/* Focus programàtic (canvi de secció, resums d'errors): sense marc */
+h1[tabindex="-1"]:focus,[tabindex="-1"].grup-equips:focus,.form-errors:focus,.form-resultat:focus{outline:none}
+
+/* Botiga: targetes i fitxa de producte */
+.prod .imatge{border:0;padding:0;cursor:zoom-in;width:100%;font:inherit}
+.prod .imatge img{transition:transform .35s ease}
+.prod .imatge:hover img{transform:scale(1.05)}
+.prod-lupa{position:absolute;right:12px;bottom:12px;width:36px;height:36px;border-radius:50%;background:rgba(12,37,84,.85);color:#fff;display:grid;place-items:center;font:700 22px/1 var(--body);opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s}
+.prod .imatge:hover .prod-lupa,.prod .imatge:focus-visible .prod-lupa{opacity:1;transform:none}
+.prod-cat{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--suau)}
+.prod-pers{align-self:flex-start;font-size:13px;font-weight:700;color:var(--blau);background:#eaf1fc;border-radius:999px;padding:4px 10px}
+.fitxa-prod{border:0;padding:0;border-radius:18px;max-width:min(920px,calc(100vw - 32px));width:100%;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.fitxa-prod::backdrop{background:rgba(7,20,48,.72)}
+.fp-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.fp-img{background:#fff;display:grid;place-items:center;padding:20px;border-right:1px solid var(--linia)}
+.fp-img img{width:100%;height:auto;max-height:70vh;object-fit:contain}
+.fp-info{padding:34px 30px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.fp-info h2{font-size:clamp(26px,3vw,36px)}
+.fp-preu{font-family:var(--display);font-weight:800;font-size:34px;color:var(--blau)}
+.fp-punts{margin:0;padding-left:20px;color:var(--suau);display:grid;gap:6px}
+.fp-desc{margin:0;color:var(--text);line-height:1.55}
+.fp-consulta{font-weight:600;color:var(--blau);text-decoration:underline;text-underline-offset:3px;padding:6px 0;min-height:24px}
+.fp-consulta:hover{color:var(--blau-fosc)}
+.fp-tanca{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(12,37,84,.08);color:var(--tinta);display:grid;place-items:center;cursor:pointer;z-index:2}
+.fp-tanca:hover{background:rgba(12,37,84,.16)}
+.fp-tanca svg{width:20px;height:20px}
+@media (max-width:720px){.fp-in{grid-template-columns:1fr}.fp-img{border-right:0;border-bottom:1px solid var(--linia);padding:14px}.fp-img img{max-height:42vh}.fp-info{padding:22px 20px}}
+@media (max-width:700px){
+  .cap-pag.amb-foto::before{background:linear-gradient(180deg,rgba(10,30,70,.8) 0%,rgba(10,30,70,.93) 100%)}
+  .filtres-pt .xips{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;margin:0 -20px;padding:2px 20px 6px;scrollbar-width:none}
+  .filtres-pt .xips::-webkit-scrollbar{display:none}
+  .filtres-pt .xips button{flex:none;scroll-snap-align:start}
+}
+
+/* Avisos del club */
+.avisos{padding-bottom:0}
+.graella-avisos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.avis{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;background:var(--blanc);border:1px solid var(--linia);border-left:5px solid var(--blau);border-radius:14px;padding:18px 20px}
+.avis img{width:96px;height:96px;object-fit:cover;border-radius:10px}
+.avis:not(:has(img)){grid-template-columns:1fr}
+.avis h3,.avis .h3{font-size:24px;text-transform:uppercase;margin:4px 0 6px}
+.avis p{color:var(--suau)}
+
+.eines-partits{grid-template-columns:minmax(0,1fr)}
+.filtres-pt,.filtres-pt .xips{min-width:0;max-width:100%}
+.pt-eq a{display:inline-block;padding:3px 0}
+
+/* =====================================================================
+   PÀGINES INDEPENDENTS, EQUIPS, LEGAL, ESTATS — 2a revisió
+   ===================================================================== */
+.molles{margin:0 0 14px;font-size:14px}
+.molles ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 8px;color:#cfdcf3}
+.molles li+li::before{content:"/";margin-right:8px;opacity:.6}
+.molles a{color:#fff;text-decoration:underline;text-underline-offset:3px;display:inline-block;padding:4px 0}
+.molles [aria-current]{color:#e7eefb}
+/* Pàgina d'equip */
+.cap-equip .wrap{padding-bottom:36px}
+.fitxa-equip{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px;align-items:start}
+.foto-equip{position:relative;display:block;width:100%;padding:0;border:0;border-radius:16px;overflow:hidden;cursor:zoom-in;aspect-ratio:3/2;background:repeating-linear-gradient(90deg,var(--blau) 0 22px,#2152a3 22px 44px)}
+.foto-equip img{width:100%;height:100%;object-fit:cover;display:block}
+.foto-equip .lupa{position:absolute;right:14px;bottom:14px;width:44px;height:44px;border-radius:50%;background:rgba(12,37,84,.8);color:#fff;display:grid;place-items:center}
+.foto-equip .lupa svg{width:20px;height:20px}
+.dades-equip{list-style:none;margin:0;padding:0;display:grid;gap:0;background:var(--blanc);border:1px solid var(--linia);border-radius:14px;overflow:hidden}
+.dades-equip li{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:14px 18px;border-bottom:1px solid var(--linia)}
+.dades-equip li:last-child{border-bottom:0}
+.dades-equip span{color:var(--suau);font-size:14px;text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.equip-desc:empty{display:none}
+.equip-desc{margin-top:16px}
+.equip-acc{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+.classificacio,.jugadors{margin-top:34px}
+.classificacio h2,.jugadors h2{font-size:28px;text-transform:uppercase;margin-bottom:10px}
+.classificacio tr.nos{background:#eaf1fc;font-weight:700}
+.plantilla{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.plantilla li{display:flex;gap:10px;align-items:baseline;background:var(--blanc);border:1px solid var(--linia);border-radius:10px;padding:10px 14px}
+.plantilla b{font-family:var(--display);font-size:22px;color:var(--blau);min-width:28px}
+.plantilla small{margin-left:auto;color:var(--suau)}
+@media (max-width:900px){.fitxa-equip{grid-template-columns:1fr}}
+/* Portada: equips */
+.xips-equips{display:flex;flex-wrap:wrap;gap:8px}
+.xips-equips a{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border-radius:999px;background:var(--blanc);border:1px solid var(--linia);text-decoration:none;font-weight:600;color:var(--tinta)}
+.xips-equips a:hover{border-color:var(--blau);color:var(--blau)}
+/* Estats dels partits */
+.estat-pt{display:inline-flex;align-items:center;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:5px 10px;border-radius:999px;white-space:nowrap;background:#eef1f6;color:#3f4a63}
+.estat-pt.ajornat{background:#fdeceb;color:#a3261f}
+.estat-pt.pendent-resultat{background:#fff4dc;color:#7a5200}
+.pt.ajornat{border-left-color:var(--perd);background:#fffafa}
+.pt.pendent-resultat{border-left-color:#c58a00}
+.pt.sense-data{border-left-color:var(--empat)}
+.pt-nota{display:block;color:var(--perd);font-weight:600;font-size:13px}
+.font-dades.avis-antic{color:#7a5200;background:#fff4dc;border-radius:10px;padding:10px 14px}
+.font-dades.avis-antic a{color:inherit;font-weight:700}
+/* Botons de pausa (moviment automàtic) */
+.hero-pausa,.pausa-cinta{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(7,20,48,.25);color:var(--blanc);cursor:pointer;padding:0}
+.hero-pausa svg,.pausa-cinta svg{width:14px;height:14px}
+.hero-pausa:hover,.pausa-cinta:hover{background:var(--blanc);color:var(--blau)}
+.pausa-cinta{width:44px;height:44px}
+.hero.aturat .hero-barra i{animation:none;transform:scaleX(0)}
+.pat-banda-dreta{display:flex;align-items:center;gap:14px}
+/* Peu: enllaços legals */
+.peu-baix{flex-wrap:wrap;gap:8px 20px}
+.peu-legal{display:flex;gap:16px;flex-wrap:wrap}
+.peu-legal a{color:#c9d4ea;text-decoration:none;padding:6px 0;display:inline-block}
+.peu-legal a:hover{color:#fff;text-decoration:underline}
+/* Textos legals */
+.text-legal{max-width:820px}
+.text-legal h2{font-size:26px;text-transform:uppercase;margin:30px 0 10px}
+.text-legal h3{font-size:20px;margin:18px 0 6px}
+.text-legal p,.text-legal li{max-width:72ch}
+.text-legal ul{padding-left:20px;display:grid;gap:6px}
+.pendent-legal{background:#eef3fb;border:1px solid #c3d3ee;border-left:5px solid var(--blau);border-radius:10px;padding:12px 16px;color:var(--blau-fosc)}
+/* Formulari: informació de protecció de dades */
+.info-dades{margin-top:24px;background:#f5f8fd;border:1px solid var(--linia);border-radius:12px;padding:16px 18px;font-size:14px}
+.info-dades h3{font-size:17px;text-transform:uppercase;margin-bottom:8px}
+.info-dades dl{margin:0;display:grid;gap:4px}
+.info-dades dl div{display:grid;grid-template-columns:110px 1fr;gap:10px}
+.info-dades dt{font-weight:700}
+.info-dades dd{margin:0;color:var(--suau)}
+.consent{margin-top:14px}
+@media (max-width:520px){.info-dades dl div{grid-template-columns:1fr;gap:0}.dades-equip li{grid-template-columns:1fr;gap:2px}}
+/* Notícies */
+.noticia{max-width:820px}
+.noticia-img{width:100%;height:auto;border-radius:14px;margin-bottom:20px}
+.noticia p{margin-top:12px;max-width:72ch}
+.avis h3 a,.avis .h3 a{color:inherit;text-decoration:none}
+.avis h3 a:hover,.avis .h3 a:hover{color:var(--blau);text-decoration:underline}
+@media (max-width:400px){.taula-cat table{font-size:14px}.taula-cat th,.taula-cat td{padding:9px 8px}.taula-cat tbody th{font-size:16px}.taula-cat thead th{font-size:12px;letter-spacing:.03em}}
+
+.llista-404{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:12px}
+.llista-404 a{display:inline-block;padding:12px 18px;border:2px solid var(--blau);border-radius:999px;font-weight:600;text-decoration:none}
+.llista-404 a:hover,.llista-404 a:focus-visible{background:var(--blau);color:#fff}
+
+/* El peu de pàgina comença fora de la pantalla mentre el JS omple les llistes (evita salts, CLS) */
+main{min-height:100vh;min-height:100svh}

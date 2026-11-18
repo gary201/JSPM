@@ -1,0 +1,216 @@
+# =====================================================================
+#  Panell d'administració del JSPM (Decap CMS)
+#  Funciona quan la web és en un repositori de GitHub publicat a Netlify
+#  (vegeu docs/PANELL-ADMIN.md). Cada canvi és un "commit": queda historial
+#  i es pot desfer. No hi ha cap contrasenya en aquest fitxer.
+# =====================================================================
+backend:
+  name: git-gateway          # Netlify Identity: accés amb correu i contrasenya, per invitació
+  branch: main
+  commit_messages:
+    create: "Panell: crea {{collection}} «{{slug}}»"
+    update: "Panell: actualitza {{collection}} «{{slug}}»"
+    delete: "Panell: esborra {{collection}} «{{slug}}»"
+# Alternativa amb comptes de GitHub:
+# backend: { name: github, repo: USUARI/jspm-web, branch: main }
+
+locale: ca
+publish_mode: editorial_workflow   # Esborrany → En revisió → Llest; només es publica en prémer «Publicar»
+show_preview_links: true           # enllaç a la previsualització de Netlify de cada esborrany
+media_folder: img/pujades
+public_folder: /img/pujades
+site_url: https://www.jspm.es
+display_url: https://www.jspm.es
+logo_url: /img/icona-192.png
+
+collections:
+  - name: noticies
+    label: Notícies
+    editor: { preview: true }
+    files:
+      - name: noticies
+        label: Notícies i avisos
+        file: dades/noticies.json
+        fields:
+          - label: Notícies
+            name: noticies
+            widget: list
+            required: false
+            summary: "{{fields.data}} · {{fields.titol}}"
+            fields:
+              - { label: Títol, name: titol, widget: string }
+              - { label: "Adreça de la pàgina (sense espais ni accents, ex. campus-nadal-2026)", name: slug, widget: string, pattern: ['^[a-z0-9-]+$', "Només minúscules, números i guions"] }
+              - { label: Data, name: data, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false }
+              - { label: "Resum (1-2 frases, surt a la portada)", name: resum, widget: text }
+              - { label: Text complet, name: text, widget: text, required: false, hint: "Deixa una línia en blanc entre paràgrafs." }
+              - { label: Imatge, name: imatge, widget: image, required: false, hint: "No publiquis fotos de menors sense autorització d'imatge." }
+              - { label: "Visible a la portada fins al", name: fins, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, required: false }
+              - { label: "Enllaç extern", name: enllac, widget: string, required: false }
+              - { label: "Text de l'enllaç", name: text_enllac, widget: string, required: false }
+
+  - name: esportiu
+    label: Equips i partits
+    editor: { preview: false }
+    files:
+      - name: equips
+        label: Equips, entrenadors i plantilles
+        file: dades/equips.json
+        fields:
+          - { label: Temporada, name: temporada, widget: string, hint: "Format 2026-2027. Les edats de les inscripcions es calculen a partir d'aquí." }
+          - label: Equips
+            name: equips
+            widget: list
+            summary: "{{fields.nom}}"
+            fields:
+              - { label: Bloc, name: bloc, widget: select, options: ["Primer equip", "Futbol 11", "Futbol 7", "Escoleta"] }
+              - { label: Nom, name: nom, widget: string }
+              - { label: "Adreça de la pàgina (ex. cadet-s15)", name: slug, widget: string, pattern: ['^[a-z0-9-]+$', "Només minúscules, números i guions"] }
+              - { label: "Text sobre la foto", name: sigla, widget: string }
+              - { label: "Foto (fitxer dins img/equips)", name: foto, widget: string }
+              - { label: "Codi FCF de l'equip (ex. a-2c15) per als partits", name: fcf, widget: string, required: false }
+              - { label: "Entrenador/a", name: entrenador, widget: string, required: false }
+              - { label: "Descripció de l'equip", name: descripcio, widget: text, required: false }
+              - { label: "Es poden publicar els noms complets dels jugadors (plantilla i fitxes dels partits)", name: mostrar_jugadors, widget: boolean, default: false, hint: "Si està desactivat, a les fitxes dels partits surt només el nom i la inicial del cognom (p. ex. Pau P.). Equips amb menors: activar-ho només si TOTES les famílies ho han autoritzat per escrit. En canviar-ho, les fitxes es tornen a generar soles el dilluns següent." }
+              - label: "Plantilla (només nom i inicial del cognom)"
+                name: jugadors
+                widget: list
+                required: false
+                fields:
+                  - { label: "Nom (ex. Pau P.)", name: nom, widget: string }
+                  - { label: Dorsal, name: dorsal, widget: string, required: false }
+                  - { label: Posició, name: posicio, widget: select, options: ["", "Porter", "Defensa", "Migcampista", "Davanter"], required: false }
+          - label: Staff
+            name: staff
+            widget: list
+            summary: "{{fields.nom}}"
+            fields:
+              - { label: Nom, name: nom, widget: string }
+              - { label: Text sobre la foto, name: sigla, widget: string }
+              - { label: Foto, name: foto, widget: string }
+              - { label: Text, name: text, widget: string }
+      - name: partits
+        label: "Partits: ajornaments i amistosos"
+        file: dades/partits-manuals.json
+        fields:
+          - label: "Correccions als partits de la Federació"
+            name: correccions
+            widget: list
+            required: false
+            summary: "{{fields.equip}} · J{{fields.jornada}} · {{fields.estat}}"
+            fields:
+              - { label: "Codi FCF de l'equip (ex. a-3cat)", name: equip, widget: string }
+              - { label: Jornada, name: jornada, widget: number, value_type: int }
+              - { label: Estat, name: estat, widget: select, options: ["", "ajornat"], required: false }
+              - { label: "Nova data", name: data, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false, required: false }
+              - { label: "Nova hora (ex. 17:30)", name: hora, widget: string, required: false }
+              - { label: "Camp", name: lloc, widget: string, required: false }
+              - { label: "Nota", name: nota, widget: string, required: false }
+          - label: Partits amistosos
+            name: amistosos
+            widget: list
+            required: false
+            summary: "{{fields.data}} · {{fields.rival}}"
+            fields:
+              - { label: "Codi FCF de l'equip", name: equip, widget: string }
+              - { label: Rival, name: rival, widget: string }
+              - { label: Data, name: data, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false }
+              - { label: "Hora (ex. 11:00)", name: hora, widget: string, required: false }
+              - { label: A casa, name: casa, widget: boolean, default: true }
+              - { label: "Camp (si és fora)", name: lloc, widget: string, required: false }
+              - { label: "Resultat (local-visitant, ex. 3-1)", name: resultat, widget: string, required: false }
+      - name: classificacions
+        label: Classificacions
+        file: dades/classificacions.json
+        fields:
+          - label: Classificacions
+            name: classificacions
+            widget: list
+            required: false
+            summary: "{{fields.equip}} · {{fields.actualitzat}}"
+            fields:
+              - { label: "Codi FCF de l'equip", name: equip, widget: string }
+              - { label: Actualitzada el, name: actualitzat, widget: datetime, format: YYYY-MM-DD, date_format: DD/MM/YYYY, time_format: false }
+              - label: Files
+                name: files
+                widget: list
+                fields:
+                  - { label: Posició, name: posicio, widget: number, value_type: int }
+                  - { label: Equip, name: equip, widget: string }
+                  - { label: Partits jugats, name: jugats, widget: number, value_type: int, required: false }
+                  - { label: Punts, name: punts, widget: number, value_type: int }
+                  - { label: És el JSPM, name: jspm, widget: boolean, default: false }
+
+  - name: club
+    label: Club
+    editor: { preview: false }
+    files:
+      - name: patrocinadors
+        label: Patrocinadors
+        file: dades/patrocinadors.json
+        fields:
+          - label: Patrocinadors
+            name: patrocinadors
+            widget: list
+            summary: "{{fields.nom}}"
+            fields:
+              - { label: Nom, name: nom, widget: string }
+              - { label: "Logo (fitxer dins img/patrocinadors)", name: logo, widget: string }
+              - { label: "Web o xarxa social", name: web, widget: string, required: false }
+              - { label: Sector, name: sector, widget: string, required: false }
+      - name: galeria
+        label: Galeria de fotos
+        file: dades/galeria.json
+        fields:
+          - label: Àlbums
+            name: galeria
+            widget: list
+            summary: "{{fields.titol}}"
+            fields:
+              - { label: Títol, name: titol, widget: string }
+              - { label: Text, name: text, widget: string, required: false }
+              - { label: Fotos, name: fotos, widget: list, field: { label: Foto, name: foto, widget: image }, hint: "Fotos de menors: només amb autorització d'imatge." }
+          - label: Fotos de la portada
+            name: galeria_portada
+            widget: list
+            fields:
+              - { label: Foto, name: foto, widget: image }
+              - { label: Àlbum, name: album, widget: string }
+      - name: botiga
+        label: "Botiga: informació addicional"
+        file: dades/botiga-extra.json
+        fields:
+          - label: "Productes (els preus i les fotos s'actualitzen sols des de TC Equipacions)"
+            name: productes_extra
+            widget: list
+            required: false
+            summary: "{{fields.id}}"
+            fields:
+              - { label: "Número del producte a TC (ex. 5153)", name: id, widget: string }
+              - { label: "Descripció", name: descripcio, widget: text, required: false }
+              - { label: "Personalització (ex. Nom i dorsal)", name: personalitzacio, widget: string, required: false }
+              - { label: "Amagar de la web", name: amagar, widget: boolean, default: false }
+      - name: contacte
+        label: Contacte
+        file: dades/contacte.json
+        fields:
+          - label: Contacte
+            name: contacte
+            widget: object
+            fields:
+              - { label: Camp, name: camp, widget: string }
+              - { label: Adreça, name: adreca, widget: string }
+              - { label: Codi postal, name: cp, widget: string }
+              - { label: Població, name: poblacio, widget: string }
+              - { label: Província, name: provincia, widget: string }
+              - { label: Correu, name: email, widget: string }
+              - label: Telèfons
+                name: telefons
+                widget: list
+                hint: "Publica només telèfons que les persones hagin autoritzat."
+                fields:
+                  - { label: Càrrec, name: carrec, widget: string }
+                  - { label: Nom, name: nom, widget: string }
+                  - { label: "Telèfon (+34…)", name: tel, widget: string }
+              - { label: Instagram, name: instagram, widget: string }
+              - { label: X, name: x, widget: string }
+              - { label: Enllaç del mapa, name: mapa, widget: string }

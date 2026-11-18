@@ -1,0 +1,2 @@
+/* Detall del partit a partir de l'acta de la FCF. Generat automàticament (eines/partits_detall.py o tasca de l'ordinador). */
+(window.JSPM_DETALLS=window.JSPM_DETALLS||{})["a-1al12/5"]={"v":1,"noms":2,"camp":"CAMP DE FUTBOL MPAL. JOVENTUT SANT PERE MÀRTIR","gols":[["5",0,"g"],["26",0,"g"],["60",1,"g","3","P., IGNASI"]],"tit":[["1","S., ÀLEX",0,[]],["3","P., IGNASI",1,[["60","g"]]],["10","G., LEO",0,[]],["5","A., NIL",0,[]],["8","C., MUSA",0,[]],["9","S., ABHIJOT",0,[]],["11","B., LUCAS",0,[]]],"sup":[["13","S., JAN",0,[]],["7","S., HARGUN SINGH",0,[]]],"res":"1-2"};

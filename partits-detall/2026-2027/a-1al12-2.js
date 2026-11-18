@@ -1,0 +1,2 @@
+/* Detall del partit a partir de l'acta de la FCF. Generat automàticament (eines/partits_detall.py o tasca de l'ordinador). */
+(window.JSPM_DETALLS=window.JSPM_DETALLS||{})["a-1al12/2"]={"v":1,"noms":2,"camp":"CAMP D´ESPORTS MPAL. MAS OLIVA","gols":[["7",0,"g"],["43",0,"g"],["44",1,"g","10","G., LEO"],["58",1,"g","9","S., ABHIJOT"]],"tit":[["13","S., JAN",0,[]],["3","P., IGNASI",0,[]],["10","G., LEO",0,[["20","y"],["44","g"]]],["5","A., NIL",0,[]],["8","C., MUSA",0,[]],["9","S., ABHIJOT",1,[["58","g"]]],["11","B., LUCAS",0,[]]],"sup":[["1","S., ÀLEX",0,[]]],"res":"2-2"};

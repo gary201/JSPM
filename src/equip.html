@@ -1,0 +1,27 @@
+<section data-ruta="equip" aria-label="{{NOM}}">
+  <div class="cap-pag cap-equip"><div class="wrap">
+    <span class="etiqueta">{{BLOC}}</span>
+    <h1>{{NOM}}</h1>
+    <p>{{COMP}}</p>
+  </div></div>
+  <div class="bloc wrap fitxa-equip">
+    <button type="button" class="foto foto-equip boto-foto" data-foto="{{FOTO}}" data-titol="{{NOM}}" aria-label="Amplia la foto de l'equip {{NOM}}">
+      <img src="{{MINI}}" srcset="{{MINI}} 720w, {{FOTO}} 1200w" sizes="(max-width: 900px) 100vw, 60vw" alt="Foto de l'equip {{NOM}} del Joventut Sant Pere Màrtir" width="1200" height="800" data-err="mini" fetchpriority="high">
+      <span class="lupa" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2M11 8v6M8 11h6"/></svg></span>
+    </button>
+    <div class="equip-info">
+      <h2 class="vh">Informació de l'equip</h2>
+      <ul class="dades-equip">
+{{INFO}}
+      </ul>
+      <p class="equip-desc">{{DESC}}</p>
+      <p class="equip-acc"><a class="boto" href="inscripcions/">Vull jugar al JSPM</a> <a class="enllac" href="equips/">← Tots els equips</a></p>
+    </div>
+  </div>
+  <div class="bloc wrap">
+    <div id="calendari-equip" data-pestanya="propers"><p class="buit">Carregant el calendari…</p></div>
+    <div id="classificacio-equip" class="classificacio" hidden></div>
+    <div id="jugadors-equip" class="jugadors" hidden></div>
+    <p class="font-dades" id="partits-font"></p>
+  </div>
+</section>

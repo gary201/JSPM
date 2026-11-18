@@ -1,0 +1,7 @@
+{
+  "name": "web-jspm",
+  "private": true,
+  "description": "Web del Joventut Sant Pere Màrtir",
+  "scripts": { "build": "python3 eines/construeix.py" },
+  "devDependencies": { "terser": "^5.31.0", "lightningcss": "^1.25.0" }
+}

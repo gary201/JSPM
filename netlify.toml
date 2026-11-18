@@ -1,0 +1,15 @@
+# Publicació a Netlify (vegeu docs/PUBLICAR.md)
+# El build instal·la les eines de reducció de CSS/JS (Node) i genera totes les pàgines (Python).
+# Si "npm ci" fallés, construeix.py copia CSS/JS sense reduir: la web continua funcionant.
+[build]
+  publish = "."
+  command = "npm ci --no-audit --no-fund || true; python3 eines/construeix.py"
+  # No torna a publicar si només han canviat dades que ja se serveixen des de GitHub Pages
+  # (estalvia crèdits del pla gratuït). Vegeu eines/netlify_ignora.sh i docs/ACTIVAR-GITHUB.md.
+  ignore = "bash eines/netlify_ignora.sh"
+
+[build.environment]
+  NODE_VERSION = "20"
+  PYTHON_VERSION = "3.11"
+
+# Les capçaleres de seguretat i memòria cau són al fitxer _headers (el genera construeix.py).

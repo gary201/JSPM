@@ -1,0 +1,223 @@
+{
+ "temporada": "2026-2027",
+ "equips": [
+  {
+   "bloc": "Primer equip",
+   "nom": "Sènior Masculí",
+   "sigla": "Sènior",
+   "foto": "17_senior_2627.webp",
+   "fcf": "a-3cat",
+   "entrenador": "",
+   "slug": "senior",
+   "descripcio": "",
+   "mostrar_jugadors": true,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 11",
+   "nom": "Juvenil",
+   "sigla": "Juvenil",
+   "foto": "16_juvenil_2627.webp",
+   "fcf": "a-2j",
+   "entrenador": "",
+   "slug": "juvenil",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 11",
+   "nom": "Cadet S16",
+   "sigla": "S16",
+   "foto": "15_cadet_s16_2627.webp",
+   "fcf": "a-2c16",
+   "entrenador": "",
+   "slug": "cadet-s16",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 11",
+   "nom": "Cadet S15",
+   "sigla": "S15",
+   "foto": "14_cadet_s15_2627.webp",
+   "fcf": "a-2c15",
+   "entrenador": "",
+   "slug": "cadet-s15",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 11",
+   "nom": "Infantil S14",
+   "sigla": "S14",
+   "foto": "13_infantil_s14_2627.webp",
+   "fcf": "a-2i14",
+   "entrenador": "",
+   "slug": "infantil-s14",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 11",
+   "nom": "Infantil S13",
+   "sigla": "S13",
+   "foto": "12_infantil_s13_2627.webp",
+   "fcf": "a-2i13",
+   "entrenador": "",
+   "slug": "infantil-s13",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 7",
+   "nom": "Aleví S12 A",
+   "sigla": "S12 A",
+   "foto": "11_alevi_s12_A_2627.webp",
+   "fcf": "a-1al12",
+   "entrenador": "",
+   "slug": "alevi-s12-a",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 7",
+   "nom": "Aleví S12 B",
+   "sigla": "S12 B",
+   "foto": "10_alevi_s12_B_2627.webp",
+   "fcf": "b-2al12",
+   "entrenador": "",
+   "slug": "alevi-s12-b",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 7",
+   "nom": "Aleví S11",
+   "sigla": "S11",
+   "foto": "09_alevi_s11_2627.webp",
+   "fcf": "",
+   "entrenador": "",
+   "slug": "alevi-s11",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 7",
+   "nom": "Benjamí S10",
+   "sigla": "S10",
+   "foto": "08_benjami_s10_2627.webp",
+   "fcf": "a-1b10",
+   "entrenador": "",
+   "slug": "benjami-s10",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 7",
+   "nom": "Benjamí S9 A",
+   "sigla": "S9 A",
+   "foto": "07_benjami_s9_A_2627.webp",
+   "fcf": "a-1b9",
+   "entrenador": "",
+   "slug": "benjami-s9-a",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 7",
+   "nom": "Benjamí S9 B",
+   "sigla": "S9 B",
+   "foto": "06_benjami_s9_B_2627.webp",
+   "fcf": "b-1b9",
+   "entrenador": "",
+   "slug": "benjami-s9-b",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 7",
+   "nom": "Benjamí S9 C",
+   "sigla": "S9 C",
+   "foto": "05_prebenjami_s9_C_2627.webp",
+   "fcf": "",
+   "entrenador": "",
+   "slug": "benjami-s9-c",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 7",
+   "nom": "Prebenjamí S8",
+   "sigla": "S8",
+   "foto": "04_prebenjami_s8_2627.webp",
+   "fcf": "a-pb8",
+   "entrenador": "",
+   "slug": "prebenjami-s8",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 7",
+   "nom": "Prebenjamí S7 A",
+   "sigla": "S7 A",
+   "foto": "03_prebenjami_s7_a_2627.webp",
+   "fcf": "",
+   "entrenador": "",
+   "slug": "prebenjami-s7-a",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Futbol 7",
+   "nom": "Prebenjamí S7 B",
+   "sigla": "S7 B",
+   "foto": "02_prebenjami_s7_2627.webp",
+   "fcf": "",
+   "entrenador": "",
+   "slug": "prebenjami-s7-b",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  },
+  {
+   "bloc": "Escoleta",
+   "nom": "Escoleta",
+   "sigla": "Escoleta",
+   "foto": "01_escoleta_2627.webp",
+   "fcf": "",
+   "entrenador": "",
+   "slug": "escoleta",
+   "descripcio": "",
+   "mostrar_jugadors": false,
+   "jugadors": []
+  }
+ ],
+ "staff": [
+  {
+   "nom": "Entrenadors i entrenadores",
+   "sigla": "Staff",
+   "foto": "18_entrenadors_2627.webp",
+   "text": "26 persones al cos tècnic"
+  },
+  {
+   "nom": "Junta",
+   "sigla": "Junta",
+   "foto": "19_junta_2627.webp",
+   "text": "Directiva del club"
+  }
+ ]
+}

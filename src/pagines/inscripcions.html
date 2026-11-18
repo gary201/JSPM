@@ -1,0 +1,89 @@
+<section data-ruta="inscripcions" aria-label="Inscripcions">
+  <div class="cap-pag amb-foto"><img class="cap-foto" src="img/galeria/partit-2.webp" srcset="img/mini/galeria/partit-2.webp 720w, img/galeria/partit-2.webp 1600w" sizes="(max-width: 760px) 90vw, 100vw" alt="" fetchpriority="high" decoding="async"><div class="wrap">
+    <span class="etiqueta">Temporada 2026-2027</span>
+    <h1>Vull jugar al JSPM</h1>
+    <p>Nens i nenes, nois i noies: si vols jugar a futbol al Pla de Dalt, et volem conèixer. Vine a provar un entrenament amb nosaltres.</p>
+  </div></div>
+
+  <div class="bloc wrap insc-intro">
+    <div>
+      <span class="etiqueta">Categories i edats</span>
+      <h2>Quina categoria et toca?</h2>
+      <p class="insc-nota" id="insc-temporada">Segons l'any de naixement, per a la temporada 2026-2027 (categories de la Federació Catalana de Futbol).</p>
+      <div class="taula-cat" id="taula-categories"></div>
+    </div>
+    <div class="insc-costat">
+      <div class="targeta">
+        <h2>Entrenaments</h2>
+        <p>Entrenem al <b>camp municipal del carrer Pic del Bac, 29</b>, al Pla de Dalt d'Olot, amb gespa artificial.</p>
+        <p>Cada equip té els seus dies i horaris segons la categoria. El coordinador t'explicarà l'horari del teu grup quan ens contactis.</p>
+        <p><a class="enllac" href="contacte/">Com arribar al camp →</a></p>
+      </div>
+      <div class="targeta">
+        <h2>Com provar un entrenament</h2>
+        <ol class="passos">
+          <li><b>Envia la preinscripció</b><span>Omple el formulari d'aquesta pàgina o truca al coordinador.</span></li>
+          <li><b>Et contactem</b><span>T'expliquem el grup, l'horari i quedem un dia per venir.</span></li>
+          <li><b>Vine a entrenar</b><span>Porta roba esportiva, botes o bambes i aigua.</span></li>
+          <li><b>Fes la fitxa</b><span>Si t'agrada, t'expliquem com formalitzar la inscripció de la temporada.</span></li>
+        </ol>
+        <p class="insc-tel">Coordinador · Eduard Molas <a class="tel num" href="tel:+34628537764">628 53 77 64</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bloc wrap">
+    <div class="form-caixa" id="preinscripcio">
+      <div class="form-cap">
+        <span class="etiqueta">Preinscripció</span>
+        <h2>Demana un entrenament de prova</h2>
+        <p>Els camps amb <span aria-hidden="true">*</span><span class="vh">asterisc</span> són obligatoris.</p>
+      </div>
+      <form id="form-inscripcio" name="preinscripcio" method="post" data-netlify="true" netlify-honeypot="web" novalidate>
+        <input type="hidden" name="form-name" value="preinscripcio">
+        <input type="hidden" name="subject" data-remove-prefix value="Preinscripció JSPM">
+        <div class="form-errors" id="form-errors" role="alert" tabindex="-1" hidden></div>
+        <fieldset>
+          <legend>Jugador o jugadora</legend>
+          <div class="camps">
+            <div class="camp"><label for="f-nom">Nom *</label><input id="f-nom" name="nom" type="text" autocomplete="given-name" required></div>
+            <div class="camp"><label for="f-cognoms">Cognoms *</label><input id="f-cognoms" name="cognoms" type="text" autocomplete="family-name" required></div>
+            <div class="camp"><label for="f-naixement">Data de naixement *</label><input id="f-naixement" name="naixement" type="date" required aria-describedby="f-naixement-ajuda"><small id="f-naixement-ajuda" class="ajuda" aria-live="polite"></small></div>
+            <div class="camp"><label for="f-categoria">Categoria d'interès</label><select id="f-categoria" name="categoria"></select></div>
+            <div class="camp"><label for="f-club">Ha jugat abans en un club?</label><select id="f-club" name="club_anterior"><option value="No">No</option><option value="Sí">Sí</option></select></div>
+            <div class="camp"><label for="f-quin">Quin club? (opcional)</label><input id="f-quin" name="quin_club" type="text"></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Dades de contacte</legend>
+          <div class="camps">
+            <div class="camp ample"><label for="f-contacte">Persona de contacte *</label><input id="f-contacte" name="contacte" type="text" autocomplete="name" required aria-describedby="f-contacte-ajuda"><small id="f-contacte-ajuda" class="ajuda">Si el jugador és menor d'edat, el pare, la mare o el tutor.</small></div>
+            <div class="camp"><label for="f-telefon">Telèfon *</label><input id="f-telefon" name="telefon" type="tel" autocomplete="tel" inputmode="tel" required></div>
+            <div class="camp"><label for="f-email">Correu electrònic *</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+            <div class="camp ample"><label for="f-comentaris">Comentaris (opcional)</label><textarea id="f-comentaris" name="comentaris" rows="3"></textarea></div>
+          </div>
+        </fieldset>
+        <div class="trampa" aria-hidden="true"><label for="f-web">No omplis aquest camp</label><input id="f-web" name="web" type="text" tabindex="-1" autocomplete="off"></div>
+        <div class="info-dades" id="info-dades">
+          <h3>Informació bàsica sobre protecció de dades</h3>
+          <dl>
+            <div><dt>Responsable</dt><dd>Club de Futbol Joventut Sant Pere Màrtir</dd></div>
+            <div><dt>Finalitat</dt><dd>Respondre la preinscripció i organitzar un entrenament de prova.</dd></div>
+            <div><dt>Legitimació</dt><dd>El teu consentiment (o el del pare, la mare o el tutor si el jugador és menor de 14 anys).</dd></div>
+            <div><dt>Destinataris</dt><dd>Ningú, excepte obligació legal.</dd></div>
+            <div><dt>Drets</dt><dd>Accés, rectificació, supressió i els altres drets, a olotjspm@gmail.com.</dd></div>
+          </dl>
+          <p><a class="enllac" href="privacitat/">Política de privacitat completa</a></p>
+        </div>
+        <div class="camp consent"><input id="f-consent" name="consentiment" type="checkbox" value="sí" required><label for="f-consent">He llegit la informació sobre protecció de dades i accepto que el JSPM tracti aquestes dades per gestionar la preinscripció. *</label></div>
+        <div class="camp consent" id="camp-tutor" hidden><input id="f-tutor" name="tutor_legal" type="checkbox" value="sí"><label for="f-tutor">Declaro que sóc el pare, la mare o el tutor legal del jugador o jugadora, que és menor d'edat. *</label></div>
+        <div class="camp consent"><input id="f-comunicacions" name="comunicacions" type="checkbox" value="sí"><label for="f-comunicacions">Vull rebre informació del club sobre activitats, campus i jornades de portes obertes (opcional).</label></div>
+        <div class="form-peu">
+          <button class="boto" type="submit" id="f-envia">Prepara el correu de preinscripció</button>
+          <p class="form-avis" id="form-avis"></p>
+        </div>
+      </form>
+      <div class="form-resultat" id="form-resultat" tabindex="-1" hidden></div>
+    </div>
+  </div>
+</section>

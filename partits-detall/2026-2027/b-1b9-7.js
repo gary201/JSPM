@@ -1,0 +1,2 @@
+/* Detall del partit a partir de l'acta de la FCF. Generat automàticament (eines/partits_detall.py o tasca de l'ordinador). */
+(window.JSPM_DETALLS=window.JSPM_DETALLS||{})["b-1b9/7"]={"v":1,"noms":2,"camp":"CAMP DE FUTBOL MPAL. DE VILATENIM","gols":[["7",0,"g"],["39",1,"g","5","M., JORDI"]],"tit":[["1","A., MARC",0,[]],["5","M., JORDI",0,[["39","g"]]],["8","S., AARON",0,[]],["9","S., ALEIX",0,[]],["6","P., MARC",0,[]],["7","R., JAN",0,[]],["3","G., MARTI",1,[]]],"sup":[["2","oleguer",0,[]]],"res":"1-1"};

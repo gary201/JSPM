@@ -1,0 +1,2 @@
+/* Detall del partit a partir de l'acta de la FCF. Generat automàticament (eines/partits_detall.py o tasca de l'ordinador). */
+(window.JSPM_DETALLS=window.JSPM_DETALLS||{})["a-pb8/2"]={"v":1,"noms":2,"camp":"CAMP DE FUTBOL MPAL. DE SANT GREGORI","gols":[["5",0,"g"],["40",1,"g","7","marti"]],"tit":[["1","G., ALEXANDRE",1,[]],["9","S., POL",0,[]],["7","marti",0,[["40","g"]]],["8","claudia",0,[]],["4","erik",0,[]],["6","R., ANGEL",0,[]],["10","bastian",0,[]]],"sup":[["11","R., ARNAU",0,[]],["5","G., BIEL",0,[]]],"res":"1-1"};

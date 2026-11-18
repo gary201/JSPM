@@ -1,0 +1,133 @@
+# =====================================================================
+#  Actualització automàtica de la web del JSPM (sense dependre de cap ordinador)
+#  - Dilluns:  partits i resultats (FCF) + fitxa dels partits nous (gols, targetes, alineació)
+#              + preus de la botiga (TC) + Instagram*  → 1 publicació
+#              Si al matí falla, es torna a provar a la tarda.
+#  - Dijous:   preus i Instagram*, però NOMÉS es publica si alguna cosa ha canviat.
+#  - Dissabte i diumenge, cada hora de 9 a 20 h: resultats i fitxes dels partits, i NOMÉS es
+#    publica si hi ha res de nou. Funciona només si les dades se serveixen des de GitHub Pages
+#    (js/config.js → dades): així no es gasten crèdits de Netlify (vegeu docs/ACTIVAR-GITHUB.md).
+#  * Instagram només si existeix el secret IG_TOKEN (vegeu docs/SERVEIS-EXTERNS.md).
+#  Cada canvi és un commit al repositori. Les dades (partits, fitxes, botiga, Instagram) es publiquen
+#  a GitHub Pages; Netlify només torna a publicar la web si ha canviat alguna altra cosa.
+#  Si un pas falla, la resta continua, la web conserva les dades anteriors i GitHub envia un correu
+#  d'avís (no els caps de setmana, per no enviar-ne un cada hora). També es pot executar a mà:
+#  Actions → «Actualitza la web» → Run workflow.
+# =====================================================================
+name: Actualitza la web
+on:
+  schedule:
+    - cron: "41 5 * * 1"      # dilluns 6:41 (hivern) / 7:41 (estiu), hora de Catalunya
+    - cron: "11 16 * * 1"     # dilluns 17:11 / 18:11: reintent (no fa res si al matí ja s'ha fet)
+    - cron: "23 12 * * 4"     # dijous: només si hi ha canvis de preus o publicacions noves
+    - cron: "17 7-19 * * 6,0" # dissabte i diumenge, cada hora (només de 9 a 20 h de Catalunya)
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: actualitza-web
+  cancel-in-progress: false
+jobs:
+  actualitza:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment:
+      name: github-pages
+    env:
+      DIJOUS: ${{ github.event.schedule == '23 12 * * 4' }}
+      CAP_DE_SETMANA: ${{ github.event.schedule == '17 7-19 * * 6,0' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Instal·la dependències
+        run: pip install beautifulsoup4 pillow
+
+      - name: Cap de setmana (comprova l'hora i que les dades vagin per GitHub Pages)
+        id: finde
+        run: |
+          if [ "$CAP_DE_SETMANA" != "true" ]; then echo "fer=1" >> "$GITHUB_OUTPUT"; exit 0; fi
+          H=$(TZ=Europe/Madrid date +%-H)
+          if [ "$H" -lt 9 ] || [ "$H" -gt 20 ]; then echo "Fora de l'horari (9-20 h): res a fer."; echo "fer=0" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if ! grep -q 'dades: *"https' js/config.js; then
+            echo "::notice::Les actualitzacions del cap de setmana necessiten GitHub Pages (js/config.js → dades). Sense això, cada hora es publicaria la web a Netlify i s'acabarien els crèdits gratuïts."
+            echo "fer=0" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "fer=1" >> "$GITHUB_OUTPUT"
+
+      - name: Partits i resultats (FCF)
+        id: partits
+        if: env.DIJOUS != 'true' && steps.finde.outputs.fer == '1'
+        continue-on-error: true
+        run: |
+          if [ "$CAP_DE_SETMANA" = "true" ]; then python3 eines/partits_fcf.py
+          else python3 eines/partits_fcf.py --si-no-avui; fi
+
+      - name: Fitxa dels partits jugats (gols, targetes i alineació de l'acta FCF)
+        id: detalls
+        if: env.DIJOUS != 'true' && steps.finde.outputs.fer == '1'
+        continue-on-error: true
+        run: python3 eines/partits_detall.py
+
+      - name: Preus de la botiga (TC Equipacions)
+        id: preus
+        if: env.CAP_DE_SETMANA != 'true'
+        continue-on-error: true
+        run: |
+          if [ "$DIJOUS" = "true" ]; then python3 eines/preus_tc.py --nomes-si-canvia
+          else python3 eines/preus_tc.py --si-no-avui; fi
+
+      - name: Instagram (API oficial, si hi ha IG_TOKEN)
+        id: instagram
+        if: env.CAP_DE_SETMANA != 'true'
+        continue-on-error: true
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_REFRESH: "1"
+        run: |
+          if [ -z "$IG_TOKEN" ]; then echo "Sense IG_TOKEN: Instagram no s'actualitza (normal si feu servir Behold)."; exit 0; fi
+          if [ "$DIJOUS" = "true" ]; then python3 eines/instagram_api.py --nomes-si-nous
+          else python3 eines/instagram_api.py --si-no-avui; fi
+
+      - name: Desa els canvis
+        id: desa
+        if: steps.finde.outputs.fer == '1'
+        run: |
+          git config user.name "jspm-bot"
+          git config user.email "jspm-bot@users.noreply.github.com"
+          git add partits.js partits-detall botiga.js insta.js img/escuts img/instagram
+          if git diff --cached --quiet; then echo "Cap canvi: no es publica res."; echo "canvis=0" >> "$GITHUB_OUTPUT"; exit 0; fi
+          git commit -m "Actualització automàtica $(TZ=Europe/Madrid date '+%F %H:%M')"
+          git push
+          echo "canvis=1" >> "$GITHUB_OUTPUT"
+
+      # ---- Dades a GitHub Pages (si està activat a Settings → Pages → Source: GitHub Actions) ----
+      - name: Prepara les dades per a GitHub Pages
+        if: steps.finde.outputs.fer == '1'
+        run: |
+          rm -rf _dades && mkdir -p _dades
+          cp partits.js botiga.js insta.js _dades/
+          [ -d partits-detall ] && cp -r partits-detall _dades/ || true
+          touch _dades/.nojekyll
+      - name: Configura GitHub Pages
+        id: pages
+        if: steps.finde.outputs.fer == '1'
+        continue-on-error: true
+        uses: actions/configure-pages@v5
+      - name: Puja les dades
+        if: steps.pages.outcome == 'success'
+        uses: actions/upload-pages-artifact@v3
+        with: { path: _dades }
+      - name: Publica les dades a GitHub Pages
+        id: publica
+        if: steps.pages.outcome == 'success'
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Avisa si algun pas ha fallat
+        if: env.CAP_DE_SETMANA != 'true' && (steps.partits.outcome == 'failure' || steps.detalls.outcome == 'failure' || steps.preus.outcome == 'failure' || steps.instagram.outcome == 'failure')
+        run: |
+          echo "::error::Algun pas no s'ha pogut fer (partits: ${{ steps.partits.outcome }}, fitxes: ${{ steps.detalls.outcome }}, preus: ${{ steps.preus.outcome }}, instagram: ${{ steps.instagram.outcome }}). La web conserva les dades anteriors."
+          exit 1

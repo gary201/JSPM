@@ -1,0 +1,34 @@
+WEB DEL JOVENTUT SANT PERE MÀRTIR (JSPM)
+========================================
+
+PER OBRIR-LA: doble clic a index.html (funciona sense internet).
+
+QUÈ S'ACTUALITZA SOL (tasques programades amb l'ordinador del club)
+- partits.js ........ partits i resultats de la FCF (dilluns, i cada hora el cap de setmana)
+- partits-detall/ ... fitxa de cada partit jugat: gols, targetes, canvis i alineació
+                      (dilluns, i cada hora el cap de setmana de 9 a 20 h)
+- botiga.js ......... preus de TC Equipacions (dilluns i dijous)
+La web avisa si aquestes dades són antigues (partits > 10 dies, botiga > 21 dies).
+Instagram (insta.js) està ATURAT: les condicions d'Instagram no permeten llegir-lo amb
+robots. Per activar-lo cal l'API oficial i el token del compte (docs/SERVEIS-EXTERNS.md).
+
+ON ÉS CADA COSA
+- src/ .............. HTML font: plantilla comuna, seccions, pàgina d'equip
+- dades/*.json ...... equips, notícies, partits manuals, classificacions, patrocinadors,
+                      galeria, botiga, contacte, SEO (editables, també des del panell)
+- css/, js/ ......... disseny i funcionament (js/config.js: adreça, formulari, correu)
+- img/ .............. fotos
+- admin/ ............ panell d'administració (funciona amb GitHub + Netlify)
+- eines/ ............ scripts per generar la web
+- docs/ ............. documentació:
+    AUDITORIA.md ........ què fallava abans
+    MILLORES.md ......... què s'ha fet
+    INFORME-TESTS.md .... proves fetes i resultats
+    SERVEIS-EXTERNS.md .. què és automàtic, què cal configurar (formulari, Instagram)
+    PANELL-ADMIN.md ..... panell: què fa, què s'ha provat, com activar-lo
+    PUBLICAR.md ......... com modificar, construir i publicar
+    ACTIVAR-GITHUB.md ... web definitiva que s'actualitza sola sense l'ordinador
+    LEGAL-PENDENT.md .... dades i decisions legals pendents ABANS de publicar
+
+ELS HTML DE LES CARPETES (index.html, club/, equips/…) ES GENEREN. No els editeu:
+editeu src/ o dades/ i executeu:   python3 eines/construeix.py

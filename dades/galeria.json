@@ -1,0 +1,81 @@
+{
+ "galeria": [
+  {
+   "titol": "Temporada 2026-2027",
+   "text": "Presentació dels equips i la nova samarreta.",
+   "fotos": [
+    "portada/banner-1",
+    "portada/banner-2",
+    "portada/banner-3",
+    "galeria/samarreta-2",
+    "galeria/samarreta-3"
+   ]
+  },
+  {
+   "titol": "Ascens 2025",
+   "text": "La celebració de l'ascens amb jugadors, famílies i afició.",
+   "fotos": [
+    "galeria/ascens-2025",
+    "galeria/final-temporada-2526-1",
+    "galeria/final-temporada-2526-2",
+    "galeria/final-temporada-2526-3",
+    "galeria/final-temporada-2526-4",
+    "galeria/final-temporada-2526-5",
+    "galeria/final-temporada-2526-6",
+    "galeria/final-temporada-2526-7",
+    "galeria/final-temporada-2526-8",
+    "galeria/final-temporada-2526-9"
+   ]
+  },
+  {
+   "titol": "Al camp",
+   "text": "Partits, entrenaments i futbol base al camp del Pic del Bac.",
+   "fotos": [
+    "galeria/club-2",
+    "galeria/equips-2",
+    "galeria/que-fem-2",
+    "galeria/que-fem-3",
+    "galeria/partit-1",
+    "galeria/partit-2",
+    "galeria/partit-3",
+    "galeria/partit-4",
+    "galeria/partit-5"
+   ]
+  },
+  {
+   "titol": "Activitats del club",
+   "text": "Memorial Arnau Serrat, Campus JSPM i el mural del club.",
+   "fotos": [
+    "portada/memorial",
+    "portada/campus",
+    "portada/mural-club"
+   ]
+  }
+ ],
+ "galeria_portada": [
+  {
+   "foto": "galeria/final-temporada-2526-3",
+   "album": "Ascens 2025"
+  },
+  {
+   "foto": "galeria/final-temporada-2526-1",
+   "album": "Ascens 2025"
+  },
+  {
+   "foto": "galeria/samarreta-2",
+   "album": "Temporada 2026-2027"
+  },
+  {
+   "foto": "galeria/partit-1",
+   "album": "Al camp"
+  },
+  {
+   "foto": "galeria/que-fem-2",
+   "album": "Al camp"
+  },
+  {
+   "foto": "galeria/final-temporada-2526-4",
+   "album": "Ascens 2025"
+  }
+ ]
+}

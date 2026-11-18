@@ -1,0 +1,4 @@
+{
+ "_info": "Classificacions entrades a mà des del panell (la FCF no ofereix una API pública). Si un equip no en té, no es mostra.",
+ "classificacions": []
+}

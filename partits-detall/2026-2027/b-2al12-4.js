@@ -1,0 +1,2 @@
+/* Detall del partit a partir de l'acta de la FCF. Generat automàticament (eines/partits_detall.py o tasca de l'ordinador). */
+(window.JSPM_DETALLS=window.JSPM_DETALLS||{})["b-2al12/4"]={"v":1,"noms":2,"camp":"CAMP DE FUTBOL MPAL. DE FONTAJAU","gols":[["11",1,"g","10","ARNAU"],["21",1,"g","9","T., ENZO"],["36",0,"g"],["52",0,"g"],["57",0,"g"],["59",0,"g"]],"tit":[["13","R., JOSHUA ZAID",0,[]],["9","T., ENZO",0,[["21","g"]]],["16","S., JAN",0,[]],["10","ARNAU",0,[["11","g"]]],["4","L., YOUSEFF",0,[]],["6","ADAM",1,[]],["8","A., FAISAL",0,[]]],"sup":[],"res":"4-2"};

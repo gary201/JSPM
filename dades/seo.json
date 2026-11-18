@@ -1,0 +1,74 @@
+{
+ "seo": {
+  "inici": {
+   "titol": "",
+   "descripcio": "Joventut Sant Pere Màrtir (JSPM), club de futbol base i amateur del Pla de Dalt d'Olot des de 1968: equips, partits, resultats, inscripcions, botiga i activitats.",
+   "imatge": "img/og/inici.jpg"
+  },
+  "club": {
+   "titol": "El club",
+   "descripcio": "Història, valors i instal·lacions del Joventut Sant Pere Màrtir, el club de futbol del Pla de Dalt d'Olot fundat el 1968.",
+   "imatge": "img/og/club.jpg"
+  },
+  "equips": {
+   "titol": "Equips",
+   "descripcio": "Els equips del JSPM aquesta temporada: primer equip, futbol 11, futbol 7 i escoleta, amb la foto de cada equip i els anys de naixement.",
+   "imatge": "img/og/equips.jpg"
+  },
+  "partits": {
+   "titol": "Partits i resultats",
+   "descripcio": "Calendari, horaris i resultats de tots els equips federats del Joventut Sant Pere Màrtir, amb filtres per categoria i equip.",
+   "imatge": "img/og/partits.jpg"
+  },
+  "que-fem": {
+   "titol": "Què fem",
+   "descripcio": "Memorial Arnau Serrat, Campus JSPM i altres activitats solidàries i esportives del Joventut Sant Pere Màrtir d'Olot.",
+   "imatge": "img/og/que-fem.jpg"
+  },
+  "galeria": {
+   "titol": "Galeria",
+   "descripcio": "Fotos dels equips, l'ascens, els partits i les activitats del Joventut Sant Pere Màrtir.",
+   "imatge": "img/og/galeria.jpg"
+  },
+  "patrocinadors": {
+   "titol": "Patrocinadors",
+   "descripcio": "Empreses i comerços d'Olot i la Garrotxa que donen suport al Joventut Sant Pere Màrtir.",
+   "imatge": "img/og/patrocinadors.jpg"
+  },
+  "botiga": {
+   "titol": "Botiga",
+   "descripcio": "Botiga oficial del JSPM: equipacions, roba d'entrenament, xandalls i motxilles amb l'escut del club, a TC Equipacions.",
+   "imatge": "img/og/botiga.jpg"
+  },
+  "inscripcions": {
+   "titol": "Inscripcions",
+   "descripcio": "Vols jugar al JSPM? Categories i anys de naixement, entrenaments al camp del Pic del Bac i formulari per demanar un entrenament de prova.",
+   "imatge": "img/og/inscripcions.jpg"
+  },
+  "contacte": {
+   "titol": "Contacte",
+   "descripcio": "Telèfons, correu i adreça del camp del Joventut Sant Pere Màrtir: Carrer Pic del Bac, 29, 17800 Olot.",
+   "imatge": "img/og/contacte.jpg"
+  },
+  "noticies": {
+   "titol": "Notícies",
+   "descripcio": "Notícies i avisos del Joventut Sant Pere Màrtir, el club de futbol del Pla de Dalt d'Olot.",
+   "imatge": "img/og/inici.jpg"
+  },
+  "privacitat": {
+   "titol": "Política de privacitat",
+   "descripcio": "Com tracta el Joventut Sant Pere Màrtir les dades personals, especialment les dels jugadors i jugadores menors d'edat.",
+   "imatge": "img/og/inici.jpg"
+  },
+  "avis-legal": {
+   "titol": "Avís legal",
+   "descripcio": "Informació legal del lloc web del Joventut Sant Pere Màrtir.",
+   "imatge": "img/og/inici.jpg"
+  },
+  "cookies": {
+   "titol": "Política de cookies",
+   "descripcio": "Aquesta web no fa servir cookies de seguiment ni de publicitat.",
+   "imatge": "img/og/inici.jpg"
+  }
+ }
+}

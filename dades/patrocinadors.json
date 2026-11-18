@@ -1,0 +1,148 @@
+{
+ "patrocinadors": [
+  {
+   "nom": "GS Cars Olot",
+   "logo": "gs-cars-bo.webp",
+   "web": "https://www.gscars.es/",
+   "sector": "Automoció"
+  },
+  {
+   "nom": "La Cabanya",
+   "logo": "la-cabanya-negre.webp",
+   "web": "https://lacabanya.net/",
+   "sector": "Hostal-restaurant · Setcases"
+  },
+  {
+   "nom": "Manxa Industrial",
+   "logo": "manxa-industrial.webp",
+   "web": "https://www.manxaindustrial.com/ca",
+   "sector": ""
+  },
+  {
+   "nom": "Embotits Vilanova",
+   "logo": "embotits-vilanova.webp",
+   "web": "https://embotitsvilanova.com/",
+   "sector": "Embotits"
+  },
+  {
+   "nom": "Mundifauna",
+   "logo": "mundifauna.webp",
+   "web": "https://www.mundifaunaolot.com/",
+   "sector": "Animals i mascotes"
+  },
+  {
+   "nom": "Fusteria Pau",
+   "logo": "fusteria-pau.webp",
+   "web": "https://fusteriapau.com/",
+   "sector": "Fusteria"
+  },
+  {
+   "nom": "Gimnàs Espai",
+   "logo": "gimnas-espai.webp",
+   "web": "https://gimnasespai.cat/ca/",
+   "sector": "Gimnàs"
+  },
+  {
+   "nom": "Cim Metall",
+   "logo": "cimmetall.webp",
+   "web": "https://cim-metall.com/",
+   "sector": ""
+  },
+  {
+   "nom": "Rètols Olot",
+   "logo": "retols-olot.webp",
+   "web": "https://www.retolsolot.com/",
+   "sector": "Retolació"
+  },
+  {
+   "nom": "Can Noguer",
+   "logo": "can-noguer.webp",
+   "web": "https://www.facebook.com/100071523923354/",
+   "sector": "Embotits i queviures"
+  },
+  {
+   "nom": "La Moixa",
+   "logo": "la-moixa.webp",
+   "web": "",
+   "sector": "La Vall de Camprodon"
+  },
+  {
+   "nom": "MG Jardineria",
+   "logo": "mg-jardineria.webp",
+   "web": "",
+   "sector": "Jardineria"
+  },
+  {
+   "nom": "Keops Construccions",
+   "logo": "keops-construccions.webp",
+   "web": "",
+   "sector": "Construcció"
+  },
+  {
+   "nom": "TC Equipacions",
+   "logo": "tc-equipacions.webp",
+   "web": "https://tcequipacions.cat/ca/",
+   "sector": "Equipacions"
+  },
+  {
+   "nom": "Les Cols Pavellons",
+   "logo": "les-cols.webp",
+   "web": "https://lescolspavellons.com/",
+   "sector": ""
+  },
+  {
+   "nom": "J. Ferrer Distribucions",
+   "logo": "jferrer.webp",
+   "web": "https://www.jferrer.net/",
+   "sector": "Distribució"
+  },
+  {
+   "nom": "Forum Assessors",
+   "logo": "forum-assessors.webp",
+   "web": "https://www.forumassessors.com/",
+   "sector": "Assessoria"
+  },
+  {
+   "nom": "Sussi Alsina",
+   "logo": "sussi-alsina-2.webp",
+   "web": "https://www.sussialsina.com/",
+   "sector": ""
+  },
+  {
+   "nom": "Lligues ADG",
+   "logo": "lligues-adg.webp",
+   "web": "https://www.instagram.com/lliguesadg/",
+   "sector": ""
+  },
+  {
+   "nom": "Gumaneh Express",
+   "logo": "gumaneh-express.webp",
+   "web": "https://www.instagram.com/gumanehexpress/",
+   "sector": "Missatgeria"
+  },
+  {
+   "nom": "La Corda",
+   "logo": "la-corda.webp",
+   "web": "https://www.instagram.com/restaurantlacorda/",
+   "sector": "Restaurant · Vall d'en Bas"
+  },
+  {
+   "nom": "Fernàndez Pagès",
+   "logo": "corredors-ass-fernandez-pages.webp",
+   "web": "https://fernandezpages.cat/",
+   "sector": "Corredoria d'assegurances"
+  },
+  {
+   "nom": "El Cafè del Firal",
+   "logo": "el-cafe-del-firal.webp",
+   "web": "https://www.instagram.com/elcafedelfiral/",
+   "sector": "Cafeteria"
+  },
+  {
+   "nom": "FisioFit",
+   "logo": "fisiofit.webp",
+   "web": "https://fisio-fit-olot.com/",
+   "sector": "Fisioteràpia"
+  }
+ ]
+}

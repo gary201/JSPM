@@ -1,0 +1,30 @@
+{
+ "contacte": {
+  "camp": "Camp de Futbol Municipal Joventut Sant Pere Màrtir",
+  "adreca": "Carrer Pic del Bac, 29",
+  "cp": "17800",
+  "poblacio": "Olot",
+  "provincia": "Girona",
+  "email": "olotjspm@gmail.com",
+  "telefons": [
+   {
+    "carrec": "President",
+    "nom": "Josep Coromina",
+    "tel": "+34683347147"
+   },
+   {
+    "carrec": "Secretari",
+    "nom": "Enric Bosch",
+    "tel": "+34676006300"
+   },
+   {
+    "carrec": "Coordinador",
+    "nom": "Eduard Molas",
+    "tel": "+34628537764"
+   }
+  ],
+  "instagram": "https://www.instagram.com/olotjspm/",
+  "x": "https://x.com/olotjspm",
+  "mapa": "https://www.google.com/maps/search/?api=1&query=Camp+de+Futbol+Joventut+Sant+Pere+M%C3%A0rtir+Pic+del+Bac+29+Olot"
+ }
+}

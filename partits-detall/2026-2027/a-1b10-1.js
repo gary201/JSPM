@@ -1,0 +1,2 @@
+/* Detall del partit a partir de l'acta de la FCF. Generat automàticament (eines/partits_detall.py o tasca de l'ordinador). */
+(window.JSPM_DETALLS=window.JSPM_DETALLS||{})["a-1b10/1"]={"v":1,"noms":2,"camp":"CAMP DE FUTBOL MPAL. LA MARGINERA","gols":[["21",1,"g","6","P., NARCÍS"]],"tit":[["1","JAPBIR",0,[]],["7","B., BLAI",0,[]],["4","C., BLAI",0,[]],["3","P., MARTI",0,[]],["9","O., YOUSSEF",0,[]],["8","M., ANIOL",0,[]],["5","S., AKALPREET",1,[]]],"sup":[["6","P., NARCÍS",0,[["21","g"]]],["10","MARCOS",0,[]],["11","S., MARC",0,[]]],"res":"0-1"};

@@ -1,0 +1,13 @@
+# Netlify: aquestes carpetes i fitxers són de treball (codi, documentació interna, eines).
+# No s'han de veure a la web publicada: es responen amb la pàgina 404.
+# (El «!» fa que s'apliqui encara que el fitxer existeixi.)
+/docs/*          /404.html  404!
+/eines/*         /404.html  404!
+/src/*           /404.html  404!
+/node_modules/*  /404.html  404!
+/.github/*       /404.html  404!
+/package.json        /404.html  404!
+/package-lock.json   /404.html  404!
+/netlify.toml        /404.html  404!
+/jspm-web.zip        /404.html  404!
+/LLEGEIX-ME.txt      /404.html  404!
