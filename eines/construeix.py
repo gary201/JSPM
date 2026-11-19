@@ -316,6 +316,27 @@ def redueix():
     for a, b in parells: shutil.copy(camí(a), camí(b))
     return "copiats sense reduir (no hi ha Node.js o falta 'npm install')"
 
+# ------------------------------------------------------------------ versions de CSS/JS
+def versiona():
+    """Afegeix ?v=<empremta> als CSS/JS reduïts de cada pàgina: quan un fitxer canvia, el navegador
+    el torna a baixar encara que en tingui una còpia antiga a la memòria cau."""
+    import hashlib
+    emp = {}
+    for f in ("css/estil.min.css", "js/app.min.js", "js/traduccions.min.js", "js/config.min.js"):
+        if os.path.exists(camí(f)):
+            emp[f] = hashlib.sha1(open(camí(f), "rb").read()).hexdigest()[:10]
+    patró = re.compile(r'((?:css|js)/(?:estil|app|traduccions|config)\.min\.(?:css|js))(?:\?v=[0-9a-f]+)?"')
+    n = 0
+    for arrel, dirs, fitxers in os.walk(ARREL):
+        dirs[:] = [x for x in dirs if x not in ("node_modules", ".git", "src", "eines", "docs", "admin", ".github")]
+        for nom in fitxers:
+            if not nom.endswith(".html"): continue
+            ruta = os.path.join(arrel, nom); txt = open(ruta, encoding="utf-8").read()
+            nou = patró.sub(lambda m: m.group(1) + ("?v=" + emp[m.group(1)] if m.group(1) in emp else "") + '"', txt)
+            if nou != txt:
+                open(ruta, "w", encoding="utf-8").write(nou); n += 1
+    return n
+
 if __name__ == "__main__":
     d = construeix_club()
     urls = construeix_pagines(d)
@@ -328,3 +349,4 @@ if __name__ == "__main__":
         c2 = re.sub(r'servei:\s*"correu"', 'servei:"netlify"', c)
         if c2 != c:
             escriu("js/config.min.js", c2); print("Formulari: Netlify Forms (build de Netlify)")
+    print("Versions CSS/JS a %d pàgines" % versiona())
