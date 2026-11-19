@@ -44,7 +44,10 @@ després `python3 eines/construeix.py`).
 - Consentiments separats: (1) tractament per a la preinscripció — obligatori;
   (2) declaració de pare/mare/tutor si el jugador és menor — obligatori en aquest cas;
   (3) comunicacions del club — opcional, desmarcat per defecte.
-- Informació bàsica de protecció de dades just abans d'enviar, amb enllaç a la política.
+- A petició del club (19/11/2026) s'ha tret el bloc d'informació bàsica de protecció de dades
+  del formulari; ara només hi ha l'enllaç a la política de privacitat a la casella de consentiment.
+  **Cal validar legalment** que això és suficient (l'RGPD art. 13 demana informar en el moment
+  de recollir les dades; la pràctica habitual és una capa bàsica visible + política completa).
 - El formulari no desa res al navegador ni en cap base de dades pròpia; anti-spam sense
   galetes (camp parany + temps mínim).
 - Cap galeta ni analítica; l'única dada local és la preferència d'idioma (explicada a /cookies/).

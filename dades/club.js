@@ -522,7 +522,7 @@ window.JSPM_CLUB = {
   },
   "inscripcions": {
    "titol": "Inscripcions",
-   "descripcio": "Vols jugar al JSPM? Categories i anys de naixement, entrenaments al camp del Pic del Bac i formulari per demanar un entrenament de prova.",
+   "descripcio": "Vols jugar al JSPM? Categories i anys de naixement, entrenaments al camp del Pic del Bac i formulari de preinscripció.",
    "imatge": "img/og/inscripcions.jpg"
   },
   "contacte": {

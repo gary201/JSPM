@@ -621,7 +621,7 @@ function pintaEquips(){
   html+='<div class="grup-equips" id="'+idBloc("Staff")+'"><h2>Staff</h2><div class="graella-eq">'+(CLUB.staff||[]).map(function(s){
     return '<article class="eq">'+fotoEq(s.sigla,FOTOS+s.foto,s.nom,s.nom.indexOf(s.sigla)>=0?s.nom:s.sigla+": "+s.nom)+'<div class="cos"><h3>'+esc(s.nom)+'</h3><p class="c">'+esc(s.text)+'</p></div></article>';
   }).join("")+'</div></div>';
-  html+='<div class="crida crida-eq"><div><h2>Vols jugar en algun d\'aquests equips?</h2><p>Mira quina categoria et toca per l\'any de naixement i demana un entrenament de prova.</p></div><a class="boto" href="#inscripcions">Vull jugar al JSPM</a></div>';
+  html+='<div class="crida crida-eq"><div><h2>Vols jugar en algun d\'aquests equips?</h2><p>Mira quina categoria et toca per l\'any de naixement i fes la preinscripció.</p></div><a class="boto" href="#inscripcions">Vull jugar al JSPM</a></div>';
   document.getElementById("llista-equips").innerHTML=html;
 }
 
@@ -982,7 +982,6 @@ function iniciaInscripcio(){
     var d=val("naixement"), dt=d?d.split("-").reverse().join("/"):"";
     return "Preinscripció JSPM — temporada "+(CLUB.temporada||"")+"\n\n"+
       "Jugador/a: "+val("nom")+" "+val("cognoms")+"\nData de naixement: "+dt+"\nCategoria d'interès: "+(val("categoria")||"No ho sap")+
-      "\nHa jugat abans en un club: "+val("club_anterior")+(val("quin_club")?" ("+val("quin_club")+")":"")+
       "\n\nPersona de contacte: "+val("contacte")+"\nTelèfon: "+val("telefon")+"\nCorreu: "+val("email")+
       (val("comentaris")?"\n\nComentaris:\n"+val("comentaris"):"")+
       "\n\nConsentiment protecció de dades: sí"+(menor()?"\nDeclara ser pare, mare o tutor legal: "+(f.elements.tutor_legal.checked?"sí":"no"):"")+
@@ -1018,7 +1017,7 @@ function iniciaInscripcio(){
     req.then(function(r){
       if(!r.ok)throw new Error(r.status);
       f.reset(); ajuda.textContent=""; if(campTutor)campTutor.hidden=true;
-      mostraRes('<h3>Preinscripció enviada</h3><p>Hem rebut les dades. El club es posarà en contacte amb vosaltres per concretar l\'entrenament de prova.</p>');
+      mostraRes('<h3>Preinscripció enviada</h3><p>Hem rebut les dades. El club es posarà en contacte amb vosaltres.</p>');
     }).catch(function(){
       opcionsCorreu(txt,"No s'ha pogut enviar el formulari");
     }).then(function(){enviant=false;boto.disabled=false;boto.textContent="Envia la preinscripció";});
