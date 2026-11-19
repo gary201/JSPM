@@ -282,7 +282,7 @@ def construeix_capcaleres():
                  "/botiga/*", "/inscripcions/*", "/contacte/*", "/noticies/*", "/privacitat/*", "/avis-legal/*", "/cookies/*"]:
         L += [ruta, "  Content-Security-Policy: " + csp()]
     L += ["/fonts/*", "  Cache-Control: public, max-age=31536000, immutable", "/img/*", "  Cache-Control: public, max-age=604800",
-          "/css/*", "  Cache-Control: public, max-age=86400", "/js/*", "  Cache-Control: public, max-age=86400"]
+          "/css/*", "  Cache-Control: public, max-age=0, must-revalidate", "/js/*", "  Cache-Control: public, max-age=0, must-revalidate"]
     escriu("_headers", "\n".join(L) + "\n")
     # El mateix per a allotjaments Apache (la majoria d'allotjaments compartits)
     H = ["# Generat per eines/construeix.py — no l'editeu a mà",
@@ -294,7 +294,7 @@ def construeix_capcaleres():
           '  <If "%{REQUEST_URI} =~ m#^/admin/#">', '    Header always set X-Robots-Tag "noindex, nofollow"', "  </If>",
           '  <FilesMatch "\\.(woff2|woff)$">', '    Header set Cache-Control "public, max-age=31536000, immutable"', "  </FilesMatch>",
           '  <FilesMatch "\\.(webp|avif|jpg|jpeg|png|svg|ico)$">', '    Header set Cache-Control "public, max-age=604800"', "  </FilesMatch>",
-          '  <FilesMatch "\\.(css|js)$">', '    Header set Cache-Control "public, max-age=86400"', "  </FilesMatch>",
+          '  <FilesMatch "\\.(css|js)$">', '    Header set Cache-Control "public, max-age=0, must-revalidate"', "  </FilesMatch>",
           '  <FilesMatch "\\.(html|xml|txt)$">', '    Header set Cache-Control "public, max-age=0, must-revalidate"', "  </FilesMatch>",
           "</IfModule>",
           "<IfModule mod_deflate.c>",

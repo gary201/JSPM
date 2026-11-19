@@ -25,7 +25,7 @@ AddType image/webp .webp
     Header set Cache-Control "public, max-age=604800"
   </FilesMatch>
   <FilesMatch "\.(css|js)$">
-    Header set Cache-Control "public, max-age=86400"
+    Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
   <FilesMatch "\.(html|xml|txt)$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
