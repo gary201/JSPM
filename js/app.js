@@ -1029,6 +1029,15 @@ function iniciaInscripcio(){
    L'atribut data-pagina del <body> diu quina és. */
 var PAGINA=document.body.getAttribute("data-pagina")||"inici";
 var TITOL_ORIG=document.title;
+/* Himne: el vídeo de YouTube (domini sense galetes) només es carrega quan s'hi fa clic. */
+document.addEventListener("click",function(e){
+  var b=e.target.closest("#himne-play");if(!b)return;
+  var f=document.createElement("iframe");
+  f.src="https://www.youtube-nocookie.com/embed/"+encodeURIComponent(b.getAttribute("data-video"))+"?autoplay=1&rel=0";
+  f.title=LANG==="es"?"Himno del Joventut Sant Pere Màrtir":"Himne del Joventut Sant Pere Màrtir";
+  f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.setAttribute("allowfullscreen","");f.referrerPolicy="strict-origin-when-cross-origin";
+  b.replaceWith(f);
+});
 function titolPagina(){
   var parts=TITOL_ORIG.split(" · ");
   if(PAGINA==="partits"){var e=perId(partitsActual()||"");if(e)parts=[tr("Partits")+" "+trNom(e.nom)].concat(parts.slice(-1));}

@@ -270,7 +270,7 @@ def csp():
     scr = (" " + rem.group(0)) if rem else ""
     return ("default-src 'self'; script-src 'self'%s; style-src 'self' 'unsafe-inline'; "
             "img-src 'self' data: https://files.fcf.cat https://tcequipacions.cat%s; font-src 'self'; "
-            "connect-src 'self'%s%s; form-action 'self'%s; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; "
+            "frame-src https://www.youtube-nocookie.com; connect-src 'self'%s%s; form-action 'self'%s; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; "
             "upgrade-insecure-requests" % (scr, img_bh, ext, con_bh, ext))
 COMUNS = {"X-Content-Type-Options": "nosniff", "Referrer-Policy": "strict-origin-when-cross-origin",
           "Permissions-Policy": "camera=(), microphone=(), geolocation=(), interest-cohort=()",

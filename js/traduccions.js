@@ -663,8 +663,17 @@ window.JSPM_I18N = {
 "10. Els teus drets": "10. Tus derechos",
 "Pots demanar l'accés a les teves dades, rectificar-les, suprimir-les, limitar-ne o oposar-te al tractament, demanar-ne la portabilitat i retirar el consentiment quan vulguis. Només cal que escriguis a": "Puedes solicitar el acceso a tus datos, rectificarlos, suprimirlos, limitar u oponerte a su tratamiento, pedir su portabilidad y retirar el consentimiento cuando quieras. Solo tienes que escribir a",
 ". Et respondrem en un termini màxim d'un mes.": ". Te responderemos en un plazo máximo de un mes.",
-"Si creus que no hem respectat els teus drets, pots presentar una reclamació a l'Agència Espanyola de Protecció de Dades (www.aepd.es).": "Si crees que no hemos respetado tus derechos, puedes presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).",
+"Si creus que no hem respectat els teus drets, pots presentar una reclamació a l'Autoritat Catalana de Protecció de Dades (apdcat.gencat.cat).": "Si crees que no hemos respetado tus derechos, puedes presentar una reclamación ante la Autoritat Catalana de Protecció de Dades (apdcat.gencat.cat).",
 "11. Seguretat": "11. Seguridad",
-"La web funciona amb connexió xifrada (HTTPS). Les preinscripcions només les poden consultar les persones del club que les gestionen, amb comptes protegits amb contrasenya, i no es desen en cap base de dades pròpia de la web.": "La web funciona con conexión cifrada (HTTPS). Las preinscripciones solo las pueden consultar las personas del club que las gestionan, con cuentas protegidas con contraseña, y no se guardan en ninguna base de datos propia de la web."
+"La web funciona amb connexió xifrada (HTTPS). Les preinscripcions només les poden consultar les persones del club que les gestionen, amb comptes protegits amb contrasenya, i no es desen en cap base de dades pròpia de la web.": "La web funciona con conexión cifrada (HTTPS). Las preinscripciones solo las pueden consultar las personas del club que las gestionan, con cuentas protegidas con contraseña, y no se guardan en ninguna base de datos propia de la web.",
+"Himne del club": "Himno del club",
+"Escolta l'himne": "Escucha el himno",
+"El vídeo es carrega des de YouTube quan hi fas clic.": "El vídeo se carga desde YouTube cuando haces clic.",
+"Obre'l a YouTube ↗": "Ábrelo en YouTube ↗",
+"Himne elaborat pel grup PDP Experience.": "Himno elaborado por el grupo PDP Experience.",
+"Lletra": "Letra",
+"Vídeo de l'himne": "Vídeo del himno",
+"A la pàgina del club, el vídeo de l'himne no es carrega fins que hi fas clic. Llavors es carrega des de YouTube en mode de privacitat millorada (youtube-nocookie.com) i, a partir d'aquell moment, YouTube pot desar dades al teu navegador segons la seva pròpia política.": "En la página del club, el vídeo del himno no se carga hasta que haces clic. Entonces se carga desde YouTube en modo de privacidad mejorada (youtube-nocookie.com) y, a partir de ese momento, YouTube puede guardar datos en tu navegador según su propia política.",
+"El vídeo de l'himne, a la pàgina del club, només es carrega des de YouTube si hi fas clic. A partir d'aquell moment s'aplica la política de privacitat de YouTube (Google).": "El vídeo del himno, en la página del club, solo se carga desde YouTube si haces clic. A partir de ese momento se aplica la política de privacidad de YouTube (Google)."
 }
 };

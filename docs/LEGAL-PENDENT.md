@@ -55,9 +55,10 @@ després `python3 eines/construeix.py`).
 
 ## Política de privacitat (nova versió, 19/11/2026)
 Reescrita seguint el model d'un altre club, adaptada al JSPM. Punts a validar o completar:
-- NIF i delegat/da de protecció de la infància (LOPIVI): nom i correu.
-- Autoritat de control: ara diu **AEPD** (abans deia APDCAT). Per a una entitat privada
-  normalment és l'AEPD; confirmar-ho.
+- Per decisió del club, la política no inclou el NIF ni el delegat/da de protecció (LOPIVI).
+  L'RGPD demana identificar el responsable; validar si cal afegir-hi el NIF.
+- Autoritat de control: **APDCAT**, per decisió del club. Per a entitats privades sovint és
+  l'AEPD; confirmar-ho amb l'assessor.
 - Les preinscripcions arriben ara a comptes personals (correu gussilol42001 i full de Google a
   gera42001). Abans de publicar, passar-les a comptes del club, tal com diu la política.
 - Transferències als EUA (Netlify, Google, GitHub): verificar les garanties (DPF / clàusules tipus).
