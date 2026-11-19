@@ -32,3 +32,5 @@ ON ÉS CADA COSA
 
 ELS HTML DE LES CARPETES (index.html, club/, equips/…) ES GENEREN. No els editeu:
 editeu src/ o dades/ i executeu:   python3 eines/construeix.py
+
+Formulari de preinscripció: Netlify Forms (avisos per correu configurats a Netlify).
