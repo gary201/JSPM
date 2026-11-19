@@ -13,7 +13,7 @@ AddType image/webp .webp
   Header always set X-Frame-Options "DENY"
   Header always set Strict-Transport-Security "max-age=31536000"
   <If "%{REQUEST_URI} !~ m#^/admin/#">
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://files.fcf.cat https://tcequipacions.cat; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://gary201.github.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://files.fcf.cat https://tcequipacions.cat; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
   </If>
   <If "%{REQUEST_URI} =~ m#^/admin/#">
     Header always set X-Robots-Tag "noindex, nofollow"

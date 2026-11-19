@@ -25,7 +25,7 @@ window.JSPM_CONFIG = {
   //  (cada publicació a Netlify gasta crèdits del pla gratuït). Exemple:
   //  "https://USUARI.github.io/NOM-DEL-REPOSITORI/"   Buit = s'usen les còpies de la mateixa web.
   //  Vegeu docs/ACTIVAR-GITHUB.md.
-  dades: "",
+  dades: "https://gary201.github.io/JSPM/",
 
   // Correu on arriben les preinscripcions quan no hi ha servidor.
   email: "olotjspm@gmail.com",
