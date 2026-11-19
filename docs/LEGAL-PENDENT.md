@@ -52,3 +52,14 @@ després `python3 eines/construeix.py`).
   galetes (camp parany + temps mínim).
 - Cap galeta ni analítica; l'única dada local és la preferència d'idioma (explicada a /cookies/).
 - Sense dades de jugadors publicades per defecte.
+
+## Política de privacitat (nova versió, 19/11/2026)
+Reescrita seguint el model d'un altre club, adaptada al JSPM. Punts a validar o completar:
+- NIF i delegat/da de protecció de la infància (LOPIVI): nom i correu.
+- Autoritat de control: ara diu **AEPD** (abans deia APDCAT). Per a una entitat privada
+  normalment és l'AEPD; confirmar-ho.
+- Les preinscripcions arriben ara a comptes personals (correu gussilol42001 i full de Google a
+  gera42001). Abans de publicar, passar-les a comptes del club, tal com diu la política.
+- Transferències als EUA (Netlify, Google, GitHub): verificar les garanties (DPF / clàusules tipus).
+- Termini de conservació de les preinscripcions: [12 mesos] proposat.
+- Fotos i noms complets: confirmar les autoritzacions d'imatge.
