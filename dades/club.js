@@ -490,6 +490,11 @@ window.JSPM_CLUB = {
    "descripcio": "Història, valors i instal·lacions del Joventut Sant Pere Màrtir, el club de futbol del Pla de Dalt d'Olot fundat el 1968.",
    "imatge": "img/og/club.jpg"
   },
+  "himne": {
+   "titol": "Himne del club",
+   "descripcio": "Escolta l'himne del Joventut Sant Pere Màrtir, el club de futbol del Pla de Dalt d'Olot, i llegeix-ne la lletra.",
+   "imatge": "img/og/club.jpg"
+  },
   "equips": {
    "titol": "Equips",
    "descripcio": "Els equips del JSPM aquesta temporada: primer equip, futbol 11, futbol 7 i escoleta, amb la foto de cada equip i els anys de naixement.",

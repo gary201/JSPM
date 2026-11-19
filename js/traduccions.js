@@ -673,7 +673,9 @@ window.JSPM_I18N = {
 "Himne elaborat pel grup PDP Experience.": "Himno elaborado por el grupo PDP Experience.",
 "Lletra": "Letra",
 "Vídeo de l'himne": "Vídeo del himno",
-"A la pàgina del club, el vídeo de l'himne no es carrega fins que hi fas clic. Llavors es carrega des de YouTube en mode de privacitat millorada (youtube-nocookie.com) i, a partir d'aquell moment, YouTube pot desar dades al teu navegador segons la seva pròpia política.": "En la página del club, el vídeo del himno no se carga hasta que haces clic. Entonces se carga desde YouTube en modo de privacidad mejorada (youtube-nocookie.com) y, a partir de ese momento, YouTube puede guardar datos en tu navegador según su propia política.",
-"El vídeo de l'himne, a la pàgina del club, només es carrega des de YouTube si hi fas clic. A partir d'aquell moment s'aplica la política de privacitat de YouTube (Google).": "El vídeo del himno, en la página del club, solo se carga desde YouTube si haces clic. A partir de ese momento se aplica la política de privacidad de YouTube (Google)."
+"A la pàgina de l'himne, el vídeo no es carrega fins que hi fas clic. Llavors es carrega des de YouTube en mode de privacitat millorada (youtube-nocookie.com) i, a partir d'aquell moment, YouTube pot desar dades al teu navegador segons la seva pròpia política.": "En la página del himno, el vídeo no se carga hasta que haces clic. Entonces se carga desde YouTube en modo de privacidad mejorada (youtube-nocookie.com) y, a partir de ese momento, YouTube puede guardar datos en tu navegador según su propia política.",
+"El vídeo de la pàgina de l'himne només es carrega des de YouTube si hi fas clic. A partir d'aquell moment s'aplica la política de privacitat de YouTube (Google).": "El vídeo de la página del himno solo se carga desde YouTube si haces clic. A partir de ese momento se aplica la política de privacidad de YouTube (Google).",
+"Himne": "Himno",
+"L'himne del Joventut Sant Pere Màrtir. Escolta'l i canta'l amb nosaltres!": "El himno del Joventut Sant Pere Màrtir. ¡Escúchalo y cántalo con nosotros!"
 }
 };

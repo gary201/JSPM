@@ -1114,8 +1114,16 @@ function revisaImatges(){document.querySelectorAll("img[data-err],img[data-load]
 
 /* Menú mòbil */
 function tancaMenu(focus){var m=document.getElementById("menu"),b=document.getElementById("obre-menu");if(!m.classList.contains("obert"))return;m.classList.remove("obert");b.setAttribute("aria-expanded","false");if(focus)b.focus();}
-document.getElementById("obre-menu").addEventListener("click",function(){var m=document.getElementById("menu");var o=m.classList.toggle("obert");this.setAttribute("aria-expanded",o?"true":"false");if(o){var p=m.querySelector("a");if(p)p.focus();}});
-document.addEventListener("keydown",function(e){if(e.key==="Escape")tancaMenu(true);});
+document.getElementById("obre-menu").addEventListener("click",function(){var m=document.getElementById("menu");var o=m.classList.toggle("obert");if(o&&(PAGINA==="club"||PAGINA==="himne")){var sc=document.getElementById("submenu-club");if(sc){sc.classList.add("obert");sc.querySelector(".submenu-boto").setAttribute("aria-expanded","true");}}this.setAttribute("aria-expanded",o?"true":"false");if(o){var p=m.querySelector("a");if(p)p.focus();}});
+/* Submenú del menú principal (Club → El club / Himne) */
+function tancaSubmenus(excepte){document.querySelectorAll(".submenu.obert").forEach(function(s){if(s!==excepte){s.classList.remove("obert");s.querySelector(".submenu-boto").setAttribute("aria-expanded","false");}});}
+document.addEventListener("click",function(e){
+  var b=e.target.closest(".submenu-boto");
+  if(!b){if(!e.target.closest(".submenu,#obre-menu"))tancaSubmenus(null);return;}
+  var s=b.parentNode, o=s.classList.toggle("obert");b.setAttribute("aria-expanded",o?"true":"false");tancaSubmenus(s);
+  if(o){var a=s.querySelector(".submenu-llista a");if(a&&e.detail===0)a.focus();}
+});
+document.addEventListener("keydown",function(e){if(e.key!=="Escape")return;var s=document.querySelector(".submenu.obert");if(s){tancaSubmenus(null);s.querySelector(".submenu-boto").focus();return;}tancaMenu(true);});
 document.addEventListener("click",function(e){if(!e.target.closest("header.cap"))tancaMenu(false);});
 window.addEventListener("hashchange",function(){if(PAGINA==="partits"){pintaPartits(partitsActual());titolPagina();}if(PAGINA==="partit"){pintaPartit();titolPagina();window.scrollTo(0,0);}});
 

@@ -80,6 +80,26 @@ nav.menu a.botiga[aria-current="page"]{border-radius:6px;box-shadow:inset 0 0 0 
   nav.menu a[aria-current="page"]{box-shadow:inset 4px 0 0 var(--clar);padding-left:12px}
   nav.menu a.botiga{margin:12px 0 0;text-align:center}
 }
+/* Submenú (Club → El club / Himne) */
+.submenu{position:relative}
+.submenu-boto{display:flex;align-items:center;gap:6px;width:100%;background:none;border:0;cursor:pointer;white-space:nowrap;color:#dfe7f7;font-family:var(--display);font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:.02em;padding:10px 8px;border-radius:6px;text-align:left}
+.submenu-boto:hover{color:var(--blanc);background:rgba(255,255,255,.08)}
+.submenu-boto.actiu{color:var(--blanc);box-shadow:inset 0 -3px 0 var(--blanc);border-radius:0}
+.submenu-boto svg{flex:none;transition:transform .2s}
+.submenu.obert .submenu-boto svg{transform:rotate(180deg)}
+.submenu-llista{display:none;position:absolute;top:100%;left:0;min-width:190px;z-index:60;flex-direction:column;background:var(--blau-fosc);border:1px solid rgba(255,255,255,.12);border-radius:0 0 10px 10px;padding:6px;box-shadow:0 14px 30px rgba(8,20,48,.35)}
+.submenu.obert .submenu-llista{display:flex}
+@media (min-width:1440px) and (hover:hover){header.cap:not(.compacte) .submenu:hover .submenu-llista{display:flex}}
+nav.menu .submenu-llista a{border-radius:6px}
+nav.menu .submenu-llista a[aria-current="page"]{box-shadow:inset 3px 0 0 var(--clar);background:rgba(255,255,255,.06)}
+@media (max-width:1439px){
+  .submenu-boto{padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.08);border-radius:0;justify-content:space-between}
+  .submenu-boto.actiu{box-shadow:inset 4px 0 0 var(--clar);padding-left:12px}
+  .submenu-llista{position:static;min-width:0;border:0;border-radius:0;box-shadow:none;padding:0 0 0 16px;background:none}
+}
+header.cap.compacte .submenu-boto{padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.08);border-radius:0;justify-content:space-between}
+header.cap.compacte .submenu-boto.actiu{box-shadow:inset 4px 0 0 var(--clar);padding-left:12px}
+header.cap.compacte .submenu-llista{position:static;min-width:0;border:0;border-radius:0;box-shadow:none;padding:0 0 0 16px;background:none}
 /* Menú plegat quan no hi cap (p. ex. textos més llargs en castellà) */
 header.cap.compacte .obre-menu{display:block}
 header.cap.compacte nav.menu{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:var(--blau-fosc);padding:8px 20px 18px;gap:0;border-top:1px solid rgba(255,255,255,.12)}
@@ -730,19 +750,10 @@ h1[tabindex="-1"]:focus,[tabindex="-1"].grup-equips:focus,.form-errors:focus,.fo
 /* El peu de pàgina comença fora de la pantalla mentre el JS omple les llistes (evita salts, CLS) */
 main{min-height:100vh;min-height:100svh}
 
-/* Himne del club (pàgina El club) */
-.himne{background:var(--blanc);border:1px solid var(--linia);border-radius:14px;overflow:hidden}
-.himne summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:18px 22px}
-.himne summary::-webkit-details-marker{display:none}
-.himne summary:hover{background:#17428a0a}
-.himne-icona{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--blau);color:var(--blanc)}
-.himne-icona svg{width:22px;height:22px}
-.himne-titol{flex:1;min-width:0}
-.himne-titol b{display:block;font-family:var(--display);text-transform:uppercase;font-weight:800;font-size:clamp(26px,3vw,34px);line-height:1}
-.himne-fletxa{flex:none;width:14px;height:14px;border-right:3px solid var(--blau);border-bottom:3px solid var(--blau);transform:rotate(45deg);transition:transform .25s;margin-right:6px}
-.himne[open] .himne-fletxa{transform:rotate(-135deg)}
-.himne-cos{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:26px 34px;padding:6px 22px 26px;border-top:1px solid var(--linia);padding-top:22px}
-@media (max-width:820px){.himne-cos{grid-template-columns:1fr}}
+/* Himne del club (pàgina himne/) */
+.himne{background:var(--blanc);border:1px solid var(--linia);border-radius:14px;padding:26px}
+.himne-cos{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:26px 40px;align-items:start}
+@media (max-width:820px){.himne{padding:18px}.himne-cos{grid-template-columns:1fr}}
 .himne-video{aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:var(--blau-fosc)}
 .himne-video iframe{width:100%;height:100%;border:0;display:block}
 .himne-play{width:100%;height:100%;border:0;padding:0;cursor:pointer;position:relative;display:grid;place-items:center;background:repeating-linear-gradient(90deg,var(--blau) 0 22px,#2152a3 22px 44px)}

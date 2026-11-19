@@ -33,7 +33,7 @@
 <!-- SEO:FI -->
 <link rel="preload" href="fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/barlow-condensed-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/estil.min.css?v=f8d3c51713">
+<link rel="stylesheet" href="css/estil.min.css?v=9e7e303842">
 </head>
 <body data-pagina="equips" data-equip="senior">
 <a class="salta" href="#contingut">Salta al contingut</a>
@@ -57,7 +57,13 @@
     <button class="obre-menu" id="obre-menu" aria-expanded="false" aria-controls="menu">Menú</button>
     <nav class="menu" id="menu" aria-label="Principal">
       <a href="./">Inici</a>
-      <a href="club/">El club</a>
+      <div class="submenu" id="submenu-club">
+        <button type="button" class="submenu-boto" aria-expanded="false" aria-controls="submenu-club-llista">Club<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+        <div class="submenu-llista" id="submenu-club-llista">
+          <a href="club/">El club</a>
+          <a href="himne/">Himne</a>
+        </div>
+      </div>
       <a href="equips/" aria-current="page">Equips</a>
       <a href="partits/">Partits</a>
       <a href="que-fem/">Què fem</a>
@@ -114,7 +120,7 @@
     </div>
     <div>
       <h2>Club</h2>
-      <ul><li><a href="club/">Història</a></li><li><a href="patrocinadors/">Patrocinadors</a></li></ul>
+      <ul><li><a href="club/">Història</a></li><li><a href="himne/">Himne</a></li><li><a href="patrocinadors/">Patrocinadors</a></li></ul>
     </div>
     <div>
       <h2>Futbol</h2>
@@ -151,9 +157,9 @@
 </div>
 <script src="partits.js" defer></script>
 <script src="https://gary201.github.io/JSPM/partits.js" defer></script>
-<script src="js/traduccions.min.js?v=32a5f2d946" defer></script>
+<script src="js/traduccions.min.js?v=5800637a0e" defer></script>
 <script src="js/config.min.js?v=8c476e8993" defer></script>
 <script src="dades/club.js" defer></script>
-<script src="js/app.min.js?v=efb92e04f5" defer></script>
+<script src="js/app.min.js?v=dc15009151" defer></script>
 </body>
 </html>

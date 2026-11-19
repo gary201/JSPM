@@ -35,7 +35,7 @@ def e(s): return html.escape(str(s), quote=True)
 NOM = "Joventut Sant Pere Màrtir"
 FITXERS_CLUB = ["equips.json", "patrocinadors.json", "galeria.json", "noticies.json", "contacte.json", "seo.json",
                 "partits-manuals.json", "classificacions.json", "botiga-extra.json"]
-ORDRE = ["inici", "club", "equips", "partits", "que-fem", "galeria", "patrocinadors", "botiga", "inscripcions",
+ORDRE = ["inici", "club", "himne", "equips", "partits", "que-fem", "galeria", "patrocinadors", "botiga", "inscripcions",
          "contacte", "noticies", "privacitat", "avis-legal", "cookies"]
 
 # ------------------------------------------------------------------ dades
@@ -115,6 +115,7 @@ def pagina(tpl, contingut, base, pagina_id, seo, seccio_menu, molles_rel, extra_
     href = "./" if seccio_menu == "inici" else seccio_menu + "/"
     h = h.replace('<a href="%s">' % href, '<a href="%s" aria-current="page">' % href, 1)
     h = h.replace('<a class="botiga" href="%s">' % href, '<a class="botiga" href="%s" aria-current="page">' % href, 1)
+    if seccio_menu in ("club", "himne"): h = h.replace('class="submenu-boto"', 'class="submenu-boto actiu"', 1)
     # molla de pa visible a la capçalera de la pàgina
     mh = molles_html(molles_rel)
     if mh:
@@ -278,7 +279,7 @@ COMUNS = {"X-Content-Type-Options": "nosniff", "Referrer-Policy": "strict-origin
 def construeix_capcaleres():
     L = ["/*"] + ["  %s: %s" % kv for kv in COMUNS.items()]
     # CSP estricta a totes les pàgines excepte /admin/ (que carrega el panell des de fora)
-    for ruta in ["/", "/*.html", "/club/*", "/equips/*", "/partits/*", "/partit/*", "/que-fem/*", "/galeria/*", "/patrocinadors/*",
+    for ruta in ["/", "/*.html", "/club/*", "/himne/*", "/equips/*", "/partits/*", "/partit/*", "/que-fem/*", "/galeria/*", "/patrocinadors/*",
                  "/botiga/*", "/inscripcions/*", "/contacte/*", "/noticies/*", "/privacitat/*", "/avis-legal/*", "/cookies/*"]:
         L += [ruta, "  Content-Security-Policy: " + csp()]
     L += ["/fonts/*", "  Cache-Control: public, max-age=31536000, immutable", "/img/*", "  Cache-Control: public, max-age=604800",

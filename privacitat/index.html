@@ -32,7 +32,7 @@
 <!-- SEO:FI -->
 <link rel="preload" href="fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/barlow-condensed-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/estil.min.css?v=f8d3c51713">
+<link rel="stylesheet" href="css/estil.min.css?v=9e7e303842">
 </head>
 <body data-pagina="privacitat">
 <a class="salta" href="#contingut">Salta al contingut</a>
@@ -56,7 +56,13 @@
     <button class="obre-menu" id="obre-menu" aria-expanded="false" aria-controls="menu">Menú</button>
     <nav class="menu" id="menu" aria-label="Principal">
       <a href="./">Inici</a>
-      <a href="club/">El club</a>
+      <div class="submenu" id="submenu-club">
+        <button type="button" class="submenu-boto" aria-expanded="false" aria-controls="submenu-club-llista">Club<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
+        <div class="submenu-llista" id="submenu-club-llista">
+          <a href="club/">El club</a>
+          <a href="himne/">Himne</a>
+        </div>
+      </div>
       <a href="equips/">Equips</a>
       <a href="partits/">Partits</a>
       <a href="que-fem/">Què fem</a>
@@ -147,7 +153,7 @@
     <ul>
       <li>Les fotos d'Instagram que surten a la portada estan copiades a la mateixa web: en visitar-la no es carrega res d'Instagram.</li>
       <li>Els partits, les fitxes i els preus de la botiga es carreguen des de GitHub Pages, que pot registrar l'adreça IP de la visita per motius tècnics i de seguretat.</li>
-      <li>El vídeo de l'himne, a la pàgina del club, només es carrega des de YouTube si hi fas clic. A partir d'aquell moment s'aplica la política de privacitat de YouTube (Google).</li>
+      <li>El vídeo de la pàgina de l'himne només es carrega des de YouTube si hi fas clic. A partir d'aquell moment s'aplica la política de privacitat de YouTube (Google).</li>
       <li>Els enllaços a Google Maps, WhatsApp, Instagram, la Federació, la botiga de TC Equipacions i el Campus et porten fora d'aquesta web. A partir d'aquí s'apliquen les polítiques de privacitat d'aquests serveis.</li>
       <li>La web no fa servir cookies. Ho expliquem a la <a href="cookies/">política de cookies</a>.</li>
     </ul>
@@ -174,7 +180,7 @@
     </div>
     <div>
       <h2>Club</h2>
-      <ul><li><a href="club/">Història</a></li><li><a href="patrocinadors/">Patrocinadors</a></li></ul>
+      <ul><li><a href="club/">Història</a></li><li><a href="himne/">Himne</a></li><li><a href="patrocinadors/">Patrocinadors</a></li></ul>
     </div>
     <div>
       <h2>Futbol</h2>
@@ -209,9 +215,9 @@
     <img id="caixa-img" alt="">
   </div>
 </div>
-<script src="js/traduccions.min.js?v=32a5f2d946" defer></script>
+<script src="js/traduccions.min.js?v=5800637a0e" defer></script>
 <script src="js/config.min.js?v=8c476e8993" defer></script>
 <script src="dades/club.js" defer></script>
-<script src="js/app.min.js?v=efb92e04f5" defer></script>
+<script src="js/app.min.js?v=dc15009151" defer></script>
 </body>
 </html>
