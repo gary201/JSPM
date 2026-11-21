@@ -12,7 +12,9 @@
 #  a GitHub Pages; Netlify només torna a publicar la web si ha canviat alguna altra cosa.
 #  Si un pas falla, la resta continua, la web conserva les dades anteriors i GitHub envia un correu
 #  d'avís (no els caps de setmana, per no enviar-ne un cada hora). També es pot executar a mà:
-#  Actions → «Actualitza la web» → Run workflow.
+#  Actions → «Actualitza la web» → Run workflow (mode «cap-de-setmana» per tornar a mirar resultats
+#  el mateix dia). Com que GitHub de vegades se salta les hores programades, un servei extern
+#  (cron-job.org) l'engega també cada hora els caps de setmana: vegeu docs/ROBOT-EXTERN.md.
 # =====================================================================
 name: Actualitza la web
 on:
@@ -21,7 +23,15 @@ on:
     - cron: "11 16 * * 1"     # dilluns 17:11 / 18:11: reintent (no fa res si al matí ja s'ha fet)
     - cron: "23 12 * * 4"     # dijous: només si hi ha canvis de preus o publicacions noves
     - cron: "17 7-19 * * 6,0" # dissabte i diumenge, cada hora (només de 9 a 20 h de Catalunya)
-  workflow_dispatch: {}
+  workflow_dispatch:
+    # També el pot engegar un servei extern (cron-job.org) per si GitHub se salta les hores
+    # programades: vegeu docs/ROBOT-EXTERN.md. «mode» diu quina feina ha de fer.
+    inputs:
+      mode:
+        description: "Feina a fer"
+        type: choice
+        default: normal
+        options: [normal, cap-de-setmana, dijous]
 permissions:
   contents: write
   pages: write
@@ -36,8 +46,8 @@ jobs:
     environment:
       name: github-pages
     env:
-      DIJOUS: ${{ github.event.schedule == '23 12 * * 4' }}
-      CAP_DE_SETMANA: ${{ github.event.schedule == '17 7-19 * * 6,0' }}
+      DIJOUS: ${{ github.event.schedule == '23 12 * * 4' || inputs.mode == 'dijous' }}
+      CAP_DE_SETMANA: ${{ github.event.schedule == '17 7-19 * * 6,0' || inputs.mode == 'cap-de-setmana' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
