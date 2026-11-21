@@ -38,6 +38,9 @@ A totes: *Create cronjob* → pestanya *Common* i pestanya *Advanced*.
   - `Content-Type` = `application/json`
 - *Advanced → Time zone*: `Europe/Madrid`
 - Resposta correcta: **204 No Content**.
+- GitHub avisa que la versió d'API `2022-11-28` deixarà de funcionar el **10/03/2028**.
+  Abans d'aquesta data, canvia `X-GitHub-Api-Version` per la versió vigent
+  (https://docs.github.com/en/rest/about-the-rest-api/api-versions).
 
 | Tasca | Horari (Custom) | Request body |
 |---|---|---|
@@ -57,6 +60,11 @@ Què fa cada mode:
   `workflow_dispatch`.
 - Si surt el codi **401** o **403**, el token ha caducat o no té el permís *Actions: Read and write*.
 - Si surt el codi **422**, el *Request body* està mal escrit.
+
+## Estat (21/11/2026)
+Està creada la tasca «JSPM - partits cap de setmana»: dissabte i diumenge, de 9:23 a 20:23,
+amb el mode `cap-de-setmana`. La prova ha tornat 204 i ha engegat el robot.
+Les tasques del dilluns i del dijous encara no estan creades.
 
 ## Costos
 cron-job.org és gratuït. Les actualitzacions de dades es publiquen a GitHub Pages i no gasten
