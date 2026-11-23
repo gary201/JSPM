@@ -6,7 +6,7 @@
    ===================================================================== */
 window.JSPM_BOTIGA = {
   "botiga": "https://tcequipacions.cat/ca/809-joventut-sant-pere-martir",
-  "actualitzat": "2026-11-21",
+  "actualitzat": "2026-11-23",
   "categories": ["Equipació de joc", "Entrenament", "Xandall i abrics", "Passeig", "Motxilles", "Packs"],
   "productes": [
     {"nom":"Samarreta 1a equipació «La Banda del Parc»","cat":"Equipació de joc","preu":33,"talles":"2 a 3XL","tipus":"samarreta","url":"https://tcequipacions.cat/ca/joventut-sant-pere-martir/5153-2356061-samarreta-1a-equipacio-la-banda-del-parc-sant-pere-martir.html","foto":"https://tcequipacions.cat/2932-product_zoom/samarreta-1a-equipacio-la-banda-del-parc-sant-pere-martir.jpg"},
